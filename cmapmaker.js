@@ -230,7 +230,9 @@ var cMapmaker = (function () {
 				document.body.removeChild(text);
 				return copy;
 			};
-			execCopy(location.protocol + "//" + location.hostname + location.pathname + location.search + (!openid ? "" : "." + openid) + location.hash);
+			let osmid = location.search.replace(/[?&]fbclid.*/, '');    // facebook対策
+			let param = osmid.replace('-', '/').replace('=', '/').slice(1).split('.');
+			execCopy(location.protocol + "//" + location.hostname + location.pathname + "?" + param[0] + (!openid ? "" : "." + openid) + location.hash);
 		},
 
 		// Try Again
