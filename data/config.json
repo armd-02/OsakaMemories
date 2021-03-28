@@ -28,7 +28,7 @@
         "bookmark": true
     },
     "google": {
-        "Analytics": "UA-98610409-3",
+        "Analytics": "G-78EQW3DYK8",
         "AppScript": "https://script.google.com/macros/s/AKfycbw04lv4R9tre_NR4bGPw8BM4QsEUzpMITFt87iMn50O0eVRyl--kp2hnw/exec",
         "sheetName": "activity",
         "targetName": "activity"
