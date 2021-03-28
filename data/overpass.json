@@ -1,0 +1,81 @@
+{
+    "osm": {
+        "library": {
+            "overpass": [
+                "relation[\"amenity\"=\"library\"]",
+                "way[\"amenity\"=\"library\"]",
+                "node[\"amenity\"=\"library\"]"
+            ],
+            "tags": [
+                "amenity=library"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "park": {
+            "overpass": [
+                "relation[\"leisure\"=\"park\"]",
+                "relation[\"leisure\"=\"playground\"]",
+                "way[\"leisure\"=\"playground\"]",
+                "way[\"leisure\"=\"park\"]"
+            ],
+            "tags": [
+                "leisure=park",
+                "leisure=playground"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "garden": {
+            "overpass": [
+                "way[\"leisure\"=\"garden\"]",
+                "way[\"landuse\"=\"grass\"]",
+                "way[\"natural\"=\"scrub\"]",
+                "way[\"landuse\"=\"farmland\"]",
+                "way[\"landuse\"=\"allotments\"]"
+            ],
+            "tags": [
+                "leisure=garden",
+                "landuse=grass",
+                "natural=scrub",
+                "landuse=farmland",
+                "landuse=allotments"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "station":{
+            "overpass": [
+                "node[\"public_transport\"=\"station\"]",
+                "way[\"public_transport\"=\"station\"]"
+            ],
+            "tags": [
+                "public_transport=station"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "wikipedia": {
+            "marker": "wikipedia.svg",
+            "api": "wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=",
+            "domain": "wikipedia.org",
+            "tag": "wikipedia",
+            "overpass": [
+                "node[\"wikipedia\"][\"public_transport\"!=\"stop_position\"]",
+                "way[\"wikipedia\"][!\"highway\"][!\"railway\"]",
+                "relation[\"wikipedia\"][!\"route\"][!\"highway\"][!\"railway\"][\"name:ja\"!=\"本州\"][\"area\"!=\"yes\"][!\"boundary\"]"
+            ],
+            "tags": [
+                "wikipedia"
+            ]
+        }
+    }
+}

@@ -1,0 +1,232 @@
+{
+    "category": {
+        "amenity": {
+            "library": "図書館",
+            "bar": "バー/酒場",
+            "bench": "ベンチ",
+            "cafe": "カフェ/喫茶店",
+            "drinking_water": "給水所/水栓",
+            "fast_food": "ファーストフード",
+            "food_court": "フードコート",
+            "ice_cream": "アイスクリーム店",
+            "pub": "パブ/居酒屋",
+            "restaurant": "レストラン",
+            "vending_machine": "自動販売機",
+            "place_of_worship": "宗教施設"
+        },
+        "shop": {
+            "alcohol": "酒屋",
+            "bakery": "パン屋",
+            "beverages": "飲料店",
+            "brewing_supplies": "醸造所",
+            "butcher": "精肉店",
+            "cheese": "チーズ店",
+            "chocolate": "チョコレート店",
+            "coffee": "コーヒー店",
+            "confectionery": "お菓子店(甘味)",
+            "convenience": "コンビニエンスストア",
+            "deli": "お弁当/惣菜屋",
+            "dairy": "乳製品店",
+            "farm": "農場直売店",
+            "frozen_food": "冷凍食品専門店",
+            "greengrocer": "八百屋",
+            "health_food": "健康食品店",
+            "ice_cream": "アイスクリーム店",
+            "pasta": "パスタ専門店",
+            "pastry": "お菓子店(焼き菓子)",
+            "seafood": "鮮魚店",
+            "spices": "スパイス専門店",
+            "tea": "お茶専門店",
+            "water": "飲料水専門店",
+            "wine": "ワイン専門店",
+            "kiosk": "キオスク",
+            "supermarket": "スーパーマーケット",
+            "variety_store": "雑貨店"
+        },
+        "cuisine": {
+            "american": "アメリカ料理",
+            "asian": "アジア料理",
+            "barbecue": "焼肉・バーベキュー",
+            "bbq": "焼肉・バーベキュー",
+            "beef_bowl": "牛丼",
+            "bento": "弁当",
+            "bowl": "丼",
+            "burger": "ハンバーガー",
+            "cake": "ケーキ",
+            "chicken": "鶏料理",
+            "chinese": "中国料理",
+            "coffee": "コーヒー",
+            "coffee_shop": "喫茶店",
+            "crepe": "クレープ",
+            "curry": "カレー",
+            "donut": "ドーナツ",
+            "fish": "魚料理",
+            "fish_and_chips": "フィッシュアンドチップス",
+            "french": "フランス料理",
+            "fried_food": "揚げ物",
+            "german": "ドイツ料理",
+            "greek": "ギリシア料理",
+            "gyoza": "餃子",
+            "gyudon": "牛丼",
+            "ice_cream": "アイスクリーム",
+            "indian": "インド料理",
+            "international": "多国籍料理",
+            "italian": "イタリア料理",
+            "italian_pizza": "イタリアンピザ",
+            "japanese": "日本料理",
+            "kebab": "ケバブ",
+            "korean": "韓国料理",
+            "local": "郷土料理",
+            "mexican": "メキシコ料理",
+            "noodle": "麺",
+            "noodles": "麺",
+            "okonomiyaki": "お好み焼き",
+            "pancake": "パンケーキ",
+            "pasta": "パスタ",
+            "pizza": "ピザ",
+            "ramen": "ラーメン",
+            "regional": "郷土料理",
+            "sandwich": "サンドイッチ",
+            "savory_pancakes": "お好み焼き",
+            "seafood": "魚介料理",
+            "soba": "そば",
+            "spanish": "スペイン料理",
+            "steak": "ステーキ",
+            "steak_house": "ステーキ",
+            "steamed_eel_rice": "鰻丼",
+            "sushi": "寿司",
+            "taiwanese": "台湾料理",
+            "takoyaki": "たこ焼き",
+            "thai": "タイ料理",
+            "tonkatsu": "とんかつ",
+            "turkish": "トルコ料理",
+            "udon": "うどん",
+            "unagi": "うなぎ",
+            "vegetarian": "精進料理",
+            "vietnamese": "ベトナム料理",
+            "western": "洋食",
+            "yakiniku": "焼肉",
+            "yakitori": "焼鳥"
+        },
+        "takeaway": {
+            "yes": "持ち帰りあり",
+            "no": "持ち帰りなし",
+            "only": "持ち帰り専門"
+        },
+        "delivery": {
+            "yes": "宅配あり",
+            "no": "宅配なし",
+            "only": "宅配専門"
+        },
+        "diet": {
+            "diet:pescetarian": "ペクスタリアン",
+            "diet:vegetarian": "ベジタリアン",
+            "diet:lacto_vegetarian": "ラクト・ベジタリアン",
+            "diet:ovo_vegetarian": "オボ・ベジタリアン",
+            "diet:vegan": "ヴィーガン",
+            "diet:fruitarian": "フルータリアン",
+            "diet:raw": "未料理/未加工",
+            "diet:gluten_free": "グルテンフリー",
+            "diet:dairy_free": "デイリーフリー",
+            "diet:lactose_free": "ラクトースフリー",
+            "diet:halal": "ハラル",
+            "diet:kosher": "コーシェル"
+        },
+        "species": {
+            "Cherry blossom": "桜",
+            "Cerasus itosakura": "桜",
+            "Cerasus × yedoensis": "桜"
+        },
+        "natural": {
+            "tree": "樹木"
+        },
+        "emergency": {
+            "fire_extinguisher": "消火器",
+            "fire_hydrant": "消火栓",
+            "defibrillator": "AED"
+        },
+        "highway": {
+            "traffic_signals": "信号機"
+        },
+        "social_facility": {
+            "shelter": "一時避難所"
+        },
+        "assembly_point:tsunami": {
+            "yes": "津波避難"
+        },
+        "attraction": {
+            "animal": "動物"
+        },
+        "playground": {
+            "structure": "複合遊具",
+            "slide": "すべり台",
+            "climbingframe": "ジャングルジム",
+            "climbingwall": "クライミングウォール",
+            "balancebeam": "平均台",
+            "playhouse": "プレイハウス",
+            "sandpit": "砂場",
+            "hopscotch": "遊べるフィールド",
+            "teenshelter": "子ども用東屋",
+            "sledding": "小さな丘",
+            "youth_bench": "運動用ベンチ",
+            "map": "マップ",
+            "swing": "ブランコ",
+            "basketswing": "カゴブランコ",
+            "basketrotator": "旋回カゴ",
+            "aerialrotator": "回旋塔",
+            "seesaw": "シーソー",
+            "springy": "スプリング",
+            "trampoline": "トランポリン",
+            "roundabout": "メリーゴーランド",
+            "cushion": "ふわふわドーム",
+            "zipwire": "移動滑車",
+            "water": "水や泥で遊ぶ場所",
+            "splash_pad": "水遊びをする場所",
+            "horizontal_bar": "鉄棒",
+            "activitypanel": "パネル遊具",
+            "exercise": "健康遊具"
+        },
+        "tourism": {
+            "viewpoint": "ビューポイント",
+            "artwork": "アート作品",
+            "information": "案内"
+        },
+        "historic": {
+            "memorial": "石碑"
+        },
+        "information": {
+            "board": "掲示板",
+            "terminal": "情報端末",
+            "audioguide": "音声ガイド",
+            "map": "地図",
+            "tactile_map": "触地図",
+            "guidepost": "道しるべ"
+        },
+        "man_made": {
+            "torii": "鳥居",
+            "lamp": "灯籠"
+        },
+        "leisure":{
+            "pitch": "グラウンド",
+            "park": "公園",
+            "playground": "児童公園"
+        },
+        "public_transport":{
+            "station": "鉄道駅"
+        },
+        "suffix_covid19": "(暫定)",
+        "bookmarked": "スターつき"
+    },
+    "opening_hours": {
+        "Mo": "月",
+        "Tu": "火",
+        "We": "水",
+        "Th": "木",
+        "Fr": "金",
+        "Sa": "土",
+        "Su": "日",
+        "PH": "祝日",
+        "off": "休業",
+        "24\/7": "24時間営業"
+    }
+}

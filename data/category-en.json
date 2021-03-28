@@ -1,0 +1,232 @@
+{
+    "category": {
+        "amenity": {
+            "library": "library",
+            "bar": "bar",
+            "bench": "bench",
+            "cafe": "cafe",
+            "drinking_water": "drinking water",
+            "fast_food": "fast food",
+            "food_court": "food court",
+            "ice_cream": "ice cream",
+            "pub": "pub",
+            "restaurant": "restaurant",
+            "vending_machine": "vending machine",
+            "place_of_worship": "place of worship"
+        },
+        "shop": {
+            "alcohol": "alcohol",
+            "bakery": "bakery",
+            "beverages": "beverages",
+            "brewing_supplies": "brewing supplies",
+            "butcher": "butcher",
+            "cheese": "cheese",
+            "chocolate": "chocolate",
+            "coffee": "coffee",
+            "confectionery": "confectionery",
+            "convenience": "convenience",
+            "deli": "deli",
+            "dairy": "dairy",
+            "farm": "farm",
+            "frozen_food": "frozen food",
+            "greengrocer": "greengrocer",
+            "health_food": "health food",
+            "ice_cream": "ice cream",
+            "pasta": "pasta",
+            "pastry": "pastry",
+            "seafood": "eafood",
+            "spices": "spices",
+            "tea": "tea",
+            "water": "water",
+            "wine": "wine",
+            "kiosk": "kiosk",
+            "supermarket": "supermarket",
+            "variety_store": "variety"
+        },
+        "cuisine": {
+            "american": "american",
+            "asian": "asian",
+            "barbecue": "barbecue",
+            "bbq": "barbecue",
+            "beef_bowl": "beef bowl",
+            "bento": "bento",
+            "bowl": "bowl",
+            "burger": "burger",
+            "cake": "cake",
+            "chicken": "chicken",
+            "chinese": "chinese",
+            "coffee": "coffee",
+            "coffee_shop": "coffee shop",
+            "crepe": "crepe",
+            "curry": "curry",
+            "donut": "donut",
+            "fish": "fish",
+            "fish_and_chips": "fish and chips",
+            "french": "french",
+            "fried_food": "fried food",
+            "german": "german",
+            "greek": "greek",
+            "gyoza": "gyoza",
+            "gyudon": "gyudon",
+            "ice_cream": "ice cream",
+            "indian": "indian",
+            "international": "international",
+            "italian": "italian",
+            "italian_pizza": "italian pizza",
+            "japanese": "japanese",
+            "kebab": "kebab",
+            "korean": "korean",
+            "local": "local",
+            "mexican": "mexican",
+            "noodle": "noodle",
+            "noodles": "noodle",
+            "okonomiyaki": "okonomiyaki",
+            "pancake": "pancake",
+            "pasta": "pasta",
+            "pizza": "pizza",
+            "ramen": "ramen",
+            "regional": "regional",
+            "sandwich": "sandwich",
+            "savory_pancakes": "savory pancakes",
+            "seafood": "seafood",
+            "soba": "soba",
+            "spanish": "spanish",
+            "steak": "steak",
+            "steak_house": "steak house",
+            "steamed_eel_rice": "steamed eel rice",
+            "sushi": "sushi",
+            "taiwanese": "taiwanese",
+            "takoyaki": "takoyaki",
+            "thai": "thai",
+            "tonkatsu": "tonkatsu",
+            "turkish": "turkish",
+            "udon": "udon",
+            "unagi": "unagi",
+            "vegetarian": "vegetarian",
+            "vietnamese": "vietnamese",
+            "western": "western",
+            "yakiniku": "yakiniku",
+            "yakitori": "yakitori"
+        },
+        "takeaway": {
+            "yes": "take out",
+            "no": "no take out",
+            "only": "take out only"
+        },
+        "delivery": {
+            "yes": "delivery",
+            "no": "no delivery",
+            "only": "delivery only"
+        },
+        "diet": {
+            "diet:pescetarian": "pescetarian",
+            "diet:vegetarian": "vegetarian",
+            "diet:lacto_vegetarian": "lacto vegetarian",
+            "diet:ovo_vegetarian": "ovo vegetarian",
+            "diet:vegan": "vegan",
+            "diet:fruitarian": "fruitarian",
+            "diet:raw": "raw",
+            "diet:gluten_free": "gluten free",
+            "diet:dairy_free": "dairy free",
+            "diet:lactose_free": "lactose free",
+            "diet:halal": "halal",
+            "diet:kosher": "kosher"
+        },
+        "species": {
+            "Cherry blossom": "sakura",
+            "Cerasus itosakura": "sakura",
+            "Cerasus × yedoensis": "sakura"
+        },
+        "natural": {
+            "tree": "tree"
+        },
+        "emergency": {
+            "fire_extinguisher": "extinguisher",
+            "fire_hydrant": "hydrant",
+            "defibrillator": "AED"
+        },
+        "highway": {
+            "traffic_signals": "traffic signals"
+        },
+        "social_facility": {
+            "shelter": "temporary sleeping"
+        },
+        "assembly_point:tsunami": {
+            "yes": "tsunami evacuation"
+        },
+        "attraction": {
+            "animal": "animal"
+        },
+        "playground": {
+            "structure": "structure",
+            "slide": "slide",
+            "climbingframe": "jungle gym",
+            "climbingwall": "climbingwall",
+            "balancebeam": "balancebeam",
+            "playhouse": "playhouse",
+            "sandpit": "sandpit",
+            "hopscotch": "hopscotch",
+            "teenshelter": "teenshelter",
+            "sledding": "sledding",
+            "youth_bench": "youth bench",
+            "map": "map",
+            "swing": "swing",
+            "basketswing": "basketswing",
+            "basketrotator": "asketrotator",
+            "aerialrotator": "aerialrotator",
+            "seesaw": "seesaw",
+            "springy": "springy",
+            "trampoline": "trampoline",
+            "roundabout": "roundabout",
+            "cushion": "cushion",
+            "zipwire": "zipwire",
+            "water": "water",
+            "splash_pad": "splash pad",
+            "horizontal_bar": "horizontal_bar",
+            "activitypanel": "activitypanel",
+            "exercise": "exercise"
+        },
+        "tourism": {
+            "viewpoint": "viewpoint",
+            "artwork": "artwork",
+            "information": "information"
+        },
+        "historic": {
+            "memorial": "memorial"
+        },
+        "information": {
+            "board": "board",
+            "terminal": "terminal",
+            "audioguide": "audioguide",
+            "map": "map",
+            "tactile_map": "tactile map",
+            "guidepost": "guidepost"
+        },
+        "man_made": {
+            "torii": "torii",
+            "lamp": "lantern"
+        },
+        "leisure": {
+            "pitch": "pitch",
+            "park": "park",
+            "playground": "playground"
+        },
+        "public_transport":{
+            "station": "station"
+        },
+        "suffix_covid19": "(provisional)",
+        "bookmarked": "Starred"
+    },
+    "opening_hours": {
+        "Mo": "Mo",
+        "Tu": "Tu",
+        "We": "We",
+        "Th": "Th",
+        "Fr": "Fr",
+        "Sa": "Sa",
+        "Su": "Su",
+        "PH": "PH",
+        "off": "Off",
+        "24\/7": "24/7"
+    }
+}
