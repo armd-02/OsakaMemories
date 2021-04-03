@@ -70,7 +70,7 @@ var cMapmaker = (function () {
 						cMapmaker.poi_view();
 						WinCont.splash(false)
 						if (location.search !== "") {    	// 引数がある場合
-							let osmid = location.search.replace(/[?&]fbclid.*/, '').replace(/%2F/, '/');    // facebook対策
+							let osmid = location.search.replace(/[?&]fbclid.*/, '').replace(/%2F/g, '/');    // facebook対策
 							let param = osmid.replace('-', '/').replace('=', '/').slice(1).split('.');
 							cMapmaker.detail_view(param[0], param[1]);
 						};
