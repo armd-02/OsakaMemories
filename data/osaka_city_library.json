@@ -1,8 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.56.3 eb200aeb",
+  "generator": "Overpass API 0.7.56.9 76e5016d",
   "osm3s": {
-    "timestamp_osm_base": "2021-02-28T12:17:42Z",
+    "timestamp_osm_base": "2021-09-22T23:52:24Z",
+    "timestamp_areas_base": "2021-09-22T23:02:13Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -11,11 +12,6 @@
       "id": 962912042,
       "lat": 34.6677248,
       "lon": 135.4588339,
-      "timestamp": "2019-11-10T16:19:46Z",
-      "version": 7,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "name": "大阪市立港図書館",
@@ -29,11 +25,6 @@
       "id": 1080511584,
       "lat": 34.7338715,
       "lon": 135.5197021,
-      "timestamp": "2020-04-28T18:58:15Z",
-      "version": 4,
-      "changeset": 84286281,
-      "user": "Wish_F",
-      "uid": 6972989,
       "tags": {
         "amenity": "library",
         "name": "大阪市立東淀川図書館",
@@ -52,11 +43,6 @@
       "id": 1422989538,
       "lat": 34.6063695,
       "lon": 135.4750788,
-      "timestamp": "2018-03-14T22:05:52Z",
-      "version": 3,
-      "changeset": 57192247,
-      "user": "adivik2000",
-      "uid": 250196,
       "tags": {
         "amenity": "library",
         "level": "3",
@@ -65,7 +51,8 @@
         "note:ja": "国土数値情報（公共施設データ）平成19年　国土交通省",
         "source": "KSJ2",
         "source_ref": "http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html",
-        "wikidata": "Q11440325"
+        "wikidata": "Q11440325",
+        "wikipedia": "ja:大阪市立住之江図書館"
       }
     },
     {
@@ -73,11 +60,6 @@
       "id": 1422989558,
       "lat": 34.7157018,
       "lon": 135.5085878,
-      "timestamp": "2019-11-10T16:19:40Z",
-      "version": 5,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "本庄東3-8-2",
         "KSJ2:AdminArea": "大阪府大阪市北区",
@@ -98,11 +80,6 @@
       "id": 1422989579,
       "lat": 34.7031980,
       "lon": 135.5446590,
-      "timestamp": "2019-11-10T16:19:41Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "name": "大阪市立城東図書館",
@@ -121,11 +98,6 @@
       "id": 1422989598,
       "lat": 34.6508700,
       "lon": 135.4721110,
-      "timestamp": "2019-11-10T16:19:41Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "千島2-6-15",
         "KSJ2:AdminArea": "大阪府大阪市大正区",
@@ -145,11 +117,6 @@
       "id": 1422989610,
       "lat": 34.6717368,
       "lon": 135.5079145,
-      "timestamp": "2019-11-10T16:19:42Z",
-      "version": 6,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "level": "3",
@@ -168,11 +135,6 @@
       "id": 1422989613,
       "lat": 34.6244950,
       "lon": 135.5591850,
-      "timestamp": "2019-11-10T16:19:42Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "平野東1-8-2",
         "KSJ2:AdminArea": "大阪府大阪市平野区",
@@ -192,11 +154,6 @@
       "id": 1422989637,
       "lat": 34.7212790,
       "lon": 135.5424360,
-      "timestamp": "2019-11-10T16:19:43Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "中宮1-11-14",
         "KSJ2:AdminArea": "大阪府大阪市旭区",
@@ -216,11 +173,6 @@
       "id": 1422989642,
       "lat": 34.6203460,
       "lon": 135.5274950,
-      "timestamp": "2019-11-10T16:19:43Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "東田辺2-11-28",
         "KSJ2:AdminArea": "大阪府大阪市東住吉区",
@@ -238,13 +190,8 @@
     {
       "type": "node",
       "id": 1422989661,
-      "lat": 34.6858650,
-      "lon": 135.4571110,
-      "timestamp": "2019-11-10T16:19:45Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
+      "lat": 34.6858992,
+      "lon": 135.4570453,
       "tags": {
         "amenity": "library",
         "level": "2",
@@ -262,11 +209,6 @@
       "id": 1422989678,
       "lat": 34.7160840,
       "lon": 135.4811928,
-      "timestamp": "2019-11-10T16:19:45Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "name": "大阪市立淀川図書館",
@@ -283,11 +225,6 @@
       "id": 1422989688,
       "lat": 34.6531856,
       "lon": 135.5397764,
-      "timestamp": "2019-11-10T16:19:46Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "name": "大阪市立生野図書館",
@@ -304,11 +241,6 @@
       "id": 1422989700,
       "lat": 34.6913097,
       "lon": 135.4731586,
-      "timestamp": "2019-11-10T16:19:47Z",
-      "version": 4,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "level": "2",
@@ -326,11 +258,6 @@
       "id": 1422989717,
       "lat": 34.6346220,
       "lon": 135.4948870,
-      "timestamp": "2019-11-10T16:19:47Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "amenity": "library",
         "name": "大阪市立西成図書館",
@@ -348,11 +275,6 @@
       "id": 1422989722,
       "lat": 34.7112720,
       "lon": 135.4547490,
-      "timestamp": "2019-11-10T16:19:47Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "御幣島2-1-10",
         "KSJ2:AdminArea": "大阪府大阪市西淀川区",
@@ -372,11 +294,6 @@
       "id": 1422989729,
       "lat": 34.7010030,
       "lon": 135.5278820,
-      "timestamp": "2019-11-10T16:19:48Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "中野町2-16-25",
         "KSJ2:AdminArea": "大阪府大阪市都島区",
@@ -395,17 +312,9 @@
     {
       "type": "node",
       "id": 1422989747,
-      "lat": 34.6408910,
-      "lon": 135.5104550,
-      "timestamp": "2019-11-10T16:19:48Z",
-      "version": 3,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
+      "lat": 34.6405473,
+      "lon": 135.5103859,
       "tags": {
-        "KSJ2:ADS": "阿倍野筋4-19-118",
-        "KSJ2:AdminArea": "大阪府大阪市阿倍野区",
-        "KSJ2:PubFacAdmin": "市区町村",
         "amenity": "library",
         "name": "大阪市立阿倍野図書館",
         "note": "National-Land Numerical Information (Public Facility) 2006, MLIT Japan",
@@ -422,11 +331,6 @@
       "id": 1422989779,
       "lat": 34.7043040,
       "lon": 135.5734890,
-      "timestamp": "2019-11-10T16:19:49Z",
-      "version": 2,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "tags": {
         "KSJ2:ADS": "横堤5-3-15",
         "KSJ2:AdminArea": "大阪府大阪市鶴見区",
@@ -443,14 +347,20 @@
     },
     {
       "type": "node",
+      "id": 2868217700,
+      "lat": 34.6572178,
+      "lon": 135.5017284,
+      "tags": {
+        "amenity": "library",
+        "name": "まちライブラリー＠大阪府立大学",
+        "website": "https://machi-library.org/where/detail/59/"
+      }
+    },
+    {
+      "type": "node",
       "id": 4406518743,
       "lat": 34.6681061,
       "lon": 135.5414729,
-      "timestamp": "2020-11-09T19:08:18Z",
-      "version": 4,
-      "changeset": 93815846,
-      "user": "Diego Sanguinetti",
-      "uid": 309382,
       "tags": {
         "addr:block_number": "2",
         "addr:city": "大阪市",
@@ -476,17 +386,29 @@
     },
     {
       "type": "node",
+      "id": 5311885146,
+      "lat": 34.6460895,
+      "lon": 135.5040014,
+      "tags": {
+        "amenity": "library",
+        "indoor": "yes",
+        "level": "0",
+        "source": "local knowledge"
+      }
+    },
+    {
+      "type": "node",
       "id": 7318541928,
       "lat": 34.6930485,
       "lon": 135.5064386,
-      "timestamp": "2020-03-22T10:30:22Z",
-      "version": 1,
-      "changeset": 82479209,
-      "user": "mds878",
-      "uid": 563872,
       "tags": {
         "amenity": "library",
-        "name": "こども本の森 中之島"
+        "name": "こども本の森 中之島",
+        "opening_hours": "Tu-Su 09:30-17:00",
+        "start_date": "2020-07-05",
+        "website": "https://kodomohonnomori.osaka/",
+        "wikidata": "Q108270058",
+        "wikipedia": "ja:こども本の森 中之島"
       }
     },
     {
@@ -494,11 +416,6 @@
       "id": 7639856140,
       "lat": 34.6586522,
       "lon": 135.4960957,
-      "timestamp": "2020-06-21T09:07:27Z",
-      "version": 1,
-      "changeset": 86929503,
-      "user": "K_Sakanoshita",
-      "uid": 389520,
       "tags": {
         "amenity": "library",
         "int_name": "Naniwa Public Library",
@@ -508,21 +425,72 @@
       }
     },
     {
+      "type": "node",
+      "id": 8738589013,
+      "lat": 34.6900114,
+      "lon": 135.5128464,
+      "tags": {
+        "alt_name": "エル・ライブラリー",
+        "amenity": "library",
+        "contact:twitter": "https://twitter.com/llibraryosaka",
+        "level": "3",
+        "name": "大阪産業労働資料館",
+        "operator": "公益財団法人大阪社会運動協会",
+        "phone": "06-6947-7722",
+        "ref:isil": "JP-1005176",
+        "website": "https://shaunkyo.jp/",
+        "wikidata": "Q11441549",
+        "wikipedia": "ja:大阪産業労働資料館"
+      }
+    },
+    {
+      "type": "way",
+      "id": 220002945,
+      "nodes": [
+        2291260044,
+        2291260043,
+        2291260038,
+        2291260037,
+        2771712967,
+        2291259959,
+        2291259960,
+        2291259966,
+        2291259965,
+        2291259981,
+        2291259983,
+        2291260016,
+        2291260014,
+        2291260035,
+        2291260036,
+        2291260044
+      ],
+      "tags": {
+        "addr:city": "大阪市",
+        "addr:housenumber": "北区中之島1-2-10",
+        "amenity": "library",
+        "building": "yes",
+        "building:levels": "5",
+        "name": "大阪府立中之島図書館",
+        "source": "GSI/KIBAN 2500;NARO",
+        "source_ref": "http://wiki.osm.org/wiki/GSI_KIBAN",
+        "website": "http://www.library.pref.osaka.jp/site/nakato/",
+        "wheelchair": "yes",
+        "wikidata": "Q7105601",
+        "wikipedia": "ja:大阪府立中之島図書館"
+      }
+    },
+    {
       "type": "way",
       "id": 261672826,
-      "timestamp": "2019-11-10T16:19:42Z",
-      "version": 8,
-      "changeset": 76872815,
-      "user": "higa4",
-      "uid": 162590,
       "nodes": [
-        2672717266,
-        2672717262,
         2672717247,
         2672717243,
         2672717230,
         2672717232,
-        2672717266
+        2672717266,
+        8537345987,
+        2672717262,
+        2672717247
       ],
       "tags": {
         "addr:city": "大阪市",
@@ -548,11 +516,6 @@
     {
       "type": "way",
       "id": 271460788,
-      "timestamp": "2020-05-03T11:18:20Z",
-      "version": 8,
-      "changeset": 84559246,
-      "user": "K_Sakanoshita",
-      "uid": 389520,
       "nodes": [
         2764222352,
         5409822612,
@@ -579,21 +542,16 @@
         "building:levels": "5",
         "building:levels:underground": "6",
         "name": "大阪市立中央図書館",
-        "wheelchair": "yes",
-        "wikidata": "Q11440289",
         "phone": "06-6539-3300",
         "website": "https://www.oml.city.osaka.lg.jp/",
+        "wheelchair": "yes",
+        "wikidata": "Q11440289",
         "wikipedia": "ja:大阪市立中央図書館"
       }
     },
     {
       "type": "way",
       "id": 271460800,
-      "timestamp": "2018-05-31T06:53:03Z",
-      "version": 2,
-      "changeset": 59418594,
-      "user": "daysofwild",
-      "uid": 7086382,
       "nodes": [
         2764222460,
         2764222462,
@@ -609,57 +567,206 @@
       "tags": {
         "amenity": "library",
         "building": "civic",
-        "name": "住吉図書館",
-        "source": "Bing,2011-4"
+        "name": "大阪市立住吉図書館",
+        "operator": "大阪市",
+        "operator:type": "public",
+        "ref:isil": "JP-1002170",
+        "website": "https://www.oml.city.osaka.lg.jp/index.php?page_id=143",
+        "wikidata": "Q11440329",
+        "wikipedia": "ja:大阪市立住吉図書館"
       }
     },
     {
       "type": "node",
-      "id": 2006319823,
-      "lat": 34.7160996,
-      "lon": 135.4181296
+      "id": 2764222460,
+      "lat": 34.6049878,
+      "lon": 135.5004450
     },
     {
       "type": "node",
-      "id": 2006319840,
-      "lat": 34.7161605,
-      "lon": 135.4178928
+      "id": 2764222462,
+      "lat": 34.6049890,
+      "lon": 135.5010926
     },
     {
       "type": "node",
-      "id": 2006319847,
-      "lat": 34.7162674,
-      "lon": 135.4179335
+      "id": 2764222464,
+      "lat": 34.6047673,
+      "lon": 135.5010870
     },
     {
       "type": "node",
-      "id": 2006319880,
-      "lat": 34.7164595,
-      "lon": 135.4179879
+      "id": 2764222466,
+      "lat": 34.6047669,
+      "lon": 135.5010179
     },
     {
       "type": "node",
-      "id": 2006319882,
-      "lat": 34.7162718,
-      "lon": 135.4179164
+      "id": 2764222468,
+      "lat": 34.6046428,
+      "lon": 135.5010188
     },
     {
       "type": "node",
-      "id": 2006319898,
-      "lat": 34.7165061,
-      "lon": 135.4182843
+      "id": 2764222471,
+      "lat": 34.6046413,
+      "lon": 135.5006886
     },
     {
       "type": "node",
-      "id": 2006319910,
-      "lat": 34.7164530,
-      "lon": 135.4180134
+      "id": 2764222473,
+      "lat": 34.6046939,
+      "lon": 135.5006883
     },
     {
       "type": "node",
-      "id": 2006319934,
-      "lat": 34.7165648,
-      "lon": 135.4180560
+      "id": 3087209618,
+      "lat": 34.6046927,
+      "lon": 135.5004493
+    },
+    {
+      "type": "node",
+      "id": 5653112896,
+      "lat": 34.6046934,
+      "lon": 135.5005943
+    },
+    {
+      "type": "node",
+      "id": 2672717230,
+      "lat": 34.6614261,
+      "lon": 135.5223156
+    },
+    {
+      "type": "node",
+      "id": 2672717232,
+      "lat": 34.6614393,
+      "lon": 135.5218966
+    },
+    {
+      "type": "node",
+      "id": 2672717243,
+      "lat": 34.6615916,
+      "lon": 135.5223233
+    },
+    {
+      "type": "node",
+      "id": 2672717247,
+      "lat": 34.6615991,
+      "lon": 135.5220849
+    },
+    {
+      "type": "node",
+      "id": 2672717262,
+      "lat": 34.6616473,
+      "lon": 135.5220872
+    },
+    {
+      "type": "node",
+      "id": 2672717266,
+      "lat": 34.6616530,
+      "lon": 135.5219066
+    },
+    {
+      "type": "node",
+      "id": 8537345987,
+      "lat": 34.6616485,
+      "lon": 135.5220490
+    },
+    {
+      "type": "node",
+      "id": 2764222352,
+      "lat": 34.6740695,
+      "lon": 135.4857843
+    },
+    {
+      "type": "node",
+      "id": 2764222355,
+      "lat": 34.6740616,
+      "lon": 135.4865978
+    },
+    {
+      "type": "node",
+      "id": 2764222358,
+      "lat": 34.6738889,
+      "lon": 135.4865862
+    },
+    {
+      "type": "node",
+      "id": 2764222362,
+      "lat": 34.6738861,
+      "lon": 135.4866473
+    },
+    {
+      "type": "node",
+      "id": 2764222365,
+      "lat": 34.6734547,
+      "lon": 135.4866183
+    },
+    {
+      "type": "node",
+      "id": 2764222369,
+      "lat": 34.6734715,
+      "lon": 135.4862474
+    },
+    {
+      "type": "node",
+      "id": 2764222371,
+      "lat": 34.6736622,
+      "lon": 135.4862602
+    },
+    {
+      "type": "node",
+      "id": 2764222374,
+      "lat": 34.6737435,
+      "lon": 135.4857624
+    },
+    {
+      "type": "node",
+      "id": 5409822611,
+      "lat": 34.6740936,
+      "lon": 135.4858950
+    },
+    {
+      "type": "node",
+      "id": 5409822612,
+      "lat": 34.6740646,
+      "lon": 135.4858930
+    },
+    {
+      "type": "node",
+      "id": 5409822613,
+      "lat": 34.6736669,
+      "lon": 135.4861585
+    },
+    {
+      "type": "node",
+      "id": 5409822614,
+      "lat": 34.6737253,
+      "lon": 135.4861625
+    },
+    {
+      "type": "node",
+      "id": 5440480107,
+      "lat": 34.6739907,
+      "lon": 135.4865930
+    },
+    {
+      "type": "node",
+      "id": 5440487330,
+      "lat": 34.6739191,
+      "lon": 135.4865882
+    },
+    {
+      "type": "node",
+      "id": 5440487389,
+      "lat": 34.6739438,
+      "lon": 135.4865899
+    },
+    {
+      "type": "node",
+      "id": 5458736593,
+      "lat": 34.6740785,
+      "lon": 135.4858940
     },
     {
       "type": "node",
@@ -747,249 +854,9 @@
     },
     {
       "type": "node",
-      "id": 2672717230,
-      "lat": 34.6614241,
-      "lon": 135.5223312
-    },
-    {
-      "type": "node",
-      "id": 2672717232,
-      "lat": 34.6614318,
-      "lon": 135.5219094
-    },
-    {
-      "type": "node",
-      "id": 2672717243,
-      "lat": 34.6615905,
-      "lon": 135.5223423
-    },
-    {
-      "type": "node",
-      "id": 2672717247,
-      "lat": 34.6615932,
-      "lon": 135.5220999
-    },
-    {
-      "type": "node",
-      "id": 2672717262,
-      "lat": 34.6616640,
-      "lon": 135.5221024
-    },
-    {
-      "type": "node",
-      "id": 2672717266,
-      "lat": 34.6616651,
-      "lon": 135.5219103
-    },
-    {
-      "type": "node",
-      "id": 2764222352,
-      "lat": 34.6740695,
-      "lon": 135.4857843
-    },
-    {
-      "type": "node",
-      "id": 2764222355,
-      "lat": 34.6740616,
-      "lon": 135.4865978
-    },
-    {
-      "type": "node",
-      "id": 2764222358,
-      "lat": 34.6738889,
-      "lon": 135.4865862
-    },
-    {
-      "type": "node",
-      "id": 2764222362,
-      "lat": 34.6738861,
-      "lon": 135.4866473
-    },
-    {
-      "type": "node",
-      "id": 2764222365,
-      "lat": 34.6734547,
-      "lon": 135.4866183
-    },
-    {
-      "type": "node",
-      "id": 2764222369,
-      "lat": 34.6734715,
-      "lon": 135.4862474
-    },
-    {
-      "type": "node",
-      "id": 2764222371,
-      "lat": 34.6736622,
-      "lon": 135.4862602
-    },
-    {
-      "type": "node",
-      "id": 2764222374,
-      "lat": 34.6737435,
-      "lon": 135.4857624
-    },
-    {
-      "type": "node",
-      "id": 2764222460,
-      "lat": 34.6049878,
-      "lon": 135.5004450
-    },
-    {
-      "type": "node",
-      "id": 2764222462,
-      "lat": 34.6049890,
-      "lon": 135.5010926
-    },
-    {
-      "type": "node",
-      "id": 2764222464,
-      "lat": 34.6047673,
-      "lon": 135.5010870
-    },
-    {
-      "type": "node",
-      "id": 2764222466,
-      "lat": 34.6047669,
-      "lon": 135.5010179
-    },
-    {
-      "type": "node",
-      "id": 2764222468,
-      "lat": 34.6046428,
-      "lon": 135.5010188
-    },
-    {
-      "type": "node",
-      "id": 2764222471,
-      "lat": 34.6046413,
-      "lon": 135.5006886
-    },
-    {
-      "type": "node",
-      "id": 2764222473,
-      "lat": 34.6046939,
-      "lon": 135.5006883
-    },
-    {
-      "type": "node",
       "id": 2771712967,
       "lat": 34.6937060,
       "lon": 135.5034707
-    },
-    {
-      "type": "node",
-      "id": 3087209618,
-      "lat": 34.6046927,
-      "lon": 135.5004493
-    },
-    {
-      "type": "node",
-      "id": 3798831012,
-      "lat": 34.7374972,
-      "lon": 135.5847021
-    },
-    {
-      "type": "node",
-      "id": 3798831013,
-      "lat": 34.7375074,
-      "lon": 135.5849728
-    },
-    {
-      "type": "node",
-      "id": 3798831030,
-      "lat": 34.7377938,
-      "lon": 135.5846855
-    },
-    {
-      "type": "node",
-      "id": 3798831032,
-      "lat": 34.7378040,
-      "lon": 135.5849562
-    },
-    {
-      "type": "node",
-      "id": 5409822611,
-      "lat": 34.6740936,
-      "lon": 135.4858950
-    },
-    {
-      "type": "node",
-      "id": 5409822612,
-      "lat": 34.6740646,
-      "lon": 135.4858930
-    },
-    {
-      "type": "node",
-      "id": 5409822613,
-      "lat": 34.6736669,
-      "lon": 135.4861585
-    },
-    {
-      "type": "node",
-      "id": 5409822614,
-      "lat": 34.6737253,
-      "lon": 135.4861625
-    },
-    {
-      "type": "node",
-      "id": 5440480107,
-      "lat": 34.6739907,
-      "lon": 135.4865930
-    },
-    {
-      "type": "node",
-      "id": 5440487330,
-      "lat": 34.6739191,
-      "lon": 135.4865882
-    },
-    {
-      "type": "node",
-      "id": 5440487389,
-      "lat": 34.6739438,
-      "lon": 135.4865899
-    },
-    {
-      "type": "node",
-      "id": 5458736593,
-      "lat": 34.6740785,
-      "lon": 135.4858940
-    },
-    {
-      "type": "node",
-      "id": 5653112896,
-      "lat": 34.6046934,
-      "lon": 135.5005943
-    },
-    {
-      "type": "node",
-      "id": 6872687527,
-      "lat": 34.7163621,
-      "lon": 135.4182295
-    },
-    {
-      "type": "node",
-      "id": 8414876146,
-      "lat": 34.7375988,
-      "lon": 135.5849948
-    },
-    {
-      "type": "node",
-      "id": 8414876147,
-      "lat": 34.7377071,
-      "lon": 135.5849887
-    },
-    {
-      "type": "node",
-      "id": 8414876148,
-      "lat": 34.7377061,
-      "lon": 135.5849617
-    },
-    {
-      "type": "node",
-      "id": 8414876149,
-      "lat": 34.7375977,
-      "lon": 135.5849678
     }
   ]
 }
