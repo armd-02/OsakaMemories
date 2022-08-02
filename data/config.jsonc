@@ -72,11 +72,6 @@
             "divider": false
         },
         {
-            "glot-model": "about",
-            "linkto": "https://kusatsumiyage.localinfo.jp/",
-            "divider": false
-        },
-        {
             "glot-model": "owner",
             "linkto": "https://github.com/K-Sakanoshita/community_mapmaker",
             "divider": true
