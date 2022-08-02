@@ -1,0 +1,116 @@
+{
+    "default": {
+        "keep_default_view": false,
+        "default_view": [
+            34.6811,
+            135.5168
+        ],
+        "_maxbounds": "", // [[左上のlat,lng],[右下のlat,lng]]
+        "maxbounds": [
+            [
+                34.54000,
+                135.30000
+            ],
+            [
+                34.80000,
+                135.80000
+            ]
+        ],
+        "initZoom": 13,
+        "pc_minZoom": 12,
+        "phone_minZoom": 11,
+        "maxZoom": 16,
+        "zoomSnap": 1,
+        "bookmark": true
+    },
+    "PoiViewZoom": {
+        "activity": 11
+    },
+    "targets": [
+        "activity"
+    ],
+    "listTable": {
+        // "targets"はConf.targetsをカテゴリ表示、"activity"はactivity(フォームデータ)を表示
+        "targets": [
+            "activity"
+        ],
+        "update_mode": "",
+        "playback": {
+            "view": false,
+            "zoomLevel": 15,
+            "timer": 4000
+        },
+        "download": false
+    },
+    "google": {
+        "Analytics": "G-78EQW3DYK8",
+        "AppScript": "https://script.google.com/macros/s/AKfycbwn_PNNCNoKIRlrisMmkRfJR_Nwc7FzsOoF5scUZA4P0e0AqmRr1bKssFmt-0-0BmxfZw/exec",
+        "targetName": "activity"
+    },
+    "splash": {
+        "url": "./image/splash.jpg"
+    },
+    "static": {
+        "mode": true,
+        "osmjson": "./data/osaka_city_library.json",
+        "osmbounds": {
+            "NW": {
+                "lat": 34.80000,
+                "lng": 135.37000
+            },
+            "SE": {
+                "lat": 34.52000,
+                "lng": 135.67000
+            }
+        }
+    },
+    // トップメニュー一覧
+    "menu": [
+        {
+            "glot-model": "licence_title",
+            "linkto": "javascript:cMapmaker.licence()",
+            "divider": false
+        },
+        {
+            "glot-model": "about",
+            "linkto": "https://kusatsumiyage.localinfo.jp/",
+            "divider": false
+        },
+        {
+            "glot-model": "owner",
+            "linkto": "https://github.com/K-Sakanoshita/community_mapmaker",
+            "divider": true
+        },
+        {
+            "glot-model": "openstreetmap",
+            "linkto": "https://www.openstreetmap.org/about",
+            "divider": false
+        }
+    ],
+    // 詳細表示のモーダル設定
+    "detail_menu": [
+        {
+            "glot-model": "osm_open",
+            "linkto": "javascript:winCont.osm_open(cMapmaker.open_osmid)",
+            "divider": false
+        },
+        {
+            "glot-model": "button_close",
+            "linkto": "javascript:winCont.modal_close()",
+            "divider": false
+        }
+    ],
+    "detail_view": {
+        // 詳細モーダルの一番上を開くかどうか
+        "openfirst": true,
+        // 詳細モーダルの追加ボタン 
+        "buttons": [
+            {
+                "btn_class": "btn btn-light border-secondary",
+                "code": "javascript:cMapmaker.url_share()",
+                "icon_class": "fas fa-clone",
+                "btn_glot_name": "share_link"
+            }
+        ]
+    }
+}

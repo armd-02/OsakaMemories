@@ -1,0 +1,134 @@
+{
+	"site_title": {
+		"ja": "大阪思い出のこしマップ",
+		"en": "Osaka Memories Map"
+	},
+	"site_subtitle": {
+		"ja": "Powered by Community Map Maker",
+		"en": "Powered by Community Map Maker"
+	},
+	"about": {
+		"ja": "大阪思い出のこしマップについて",
+		"en": "about Osaka Memories Map"
+	},
+	"owner": {
+		"ja": "開発サイト",
+		"en": "development site"
+	},
+	"licence_title": {
+		"ja": "大阪思い出のこしマップについて",
+		"en": "About Osaka Memories Map"
+	},
+	"licence_message": {
+		"ja": "大阪市立図書館の「思い出のこしプロジェクト」を地図上で表示するWebサイトです。<br>思い出のこしプロジェクトのデータは <a href=\"https://creativecommons.org/licenses/by/4.0/deed.ja\" target='_blank'>CC BY 4.0</a> ライセンスで <a href=\"https://www.oml.city.osaka.lg.jp/?page_id=1301#_11176\"target='_blank'>公開</a> されています。<br>",
+		"en": "This is a website that displays the \"Memorial Koshi Project\" of the Osaka Municipal Library on a map.<br> The \"Omoide nokoshi\" data of the Osaka Municipal Library is <a href=\"https://www.oml.city.osaka.lg.jp/?page_id=1301#_11176\"target='_blank'>released</a> under a <a href=\"https://creativecommons.org/licenses/by/4.0/deed.ja\" target='_blank'>CC BY 4.0</a> license."
+	},
+	"more_message": {
+		"ja": "スプラッシュ画像: <a href=\"http://image.oml.city.osaka.lg.jp/archive/detail?cls=ancient&pkey=n0067001\">大阪市立図書館デジタルアーカイブ 大阪市大観</a>",
+		"en": "Splash Image: <a href=\"http://image.oml.city.osaka.lg.jp/archive/detail?cls=ancient&pkey=n0067001\">Osaka Municipal Library Digital Archive Osakashi daikan</a>"
+	},
+	"eventdates": {
+		"ja": "開催期間: ",
+		"en": "Event Dates: "
+	},
+	"activities": {
+		"ja": "活動履歴",
+		"en": "Activities"
+	},
+	"libc": {
+		"ja": "年表",
+		"en": "chronology"
+	},
+	"children": {
+		"ja": "お宝",
+		"en": "Treasure"
+	},
+	"memories_age": {
+		"ja": "年代",
+		"en": "age"
+	},
+	"memories": {
+		"ja": "思い出",
+		"en": "memories"
+	},
+	"author": {
+		"ja": "投稿者",
+		"en": "Author"
+	},
+	"place": {
+		"ja": "場所",
+		"en": "place"
+	},
+	"supply": {
+		"ja": "補足情報",
+		"en": "supply"
+	},
+	"references": {
+		"ja": "参考文献",
+		"en": "references"
+	},
+	"actdate": {
+		"ja": "発生日",
+		"en": "Disaster Date"
+	},
+	"ds_subject": {
+		"ja": "作業名",
+		"en": "Subject"
+	},
+	"ds_detail_url": {
+		"ja": "詳細URL",
+		"en": "Detail URL"
+	},
+	"act_grade": {
+		"ja": "学年",
+		"en": "Grade"
+	},
+	"act_title": {
+		"ja": "題名",
+		"en": "Subject"
+	},
+	"act_memo": {
+		"ja": "説明",
+		"en": "Detail"
+	},
+	"act_official_url": {
+		"ja": "草津おみやげラボURL",
+		"en": "Kusatsu Omiyage Labo URL"
+	},
+	"act_recommend_url": {
+		"ja": "オススメURL",
+		"en": "Recommend URL"
+	},
+	"act_picture_url1": {
+		"ja": "写真URL1",
+		"en": "Picture URL1"
+	},
+	"act_picture_url2": {
+		"ja": "写真URL2",
+		"en": "Picture URL2"
+	},
+	"act_picture_url3": {
+		"ja": "写真URL3",
+		"en": "Picture URL3"
+	},
+	"act_quiz_comment": {
+		"ja": "クイズを出したい人は、下に書いてね",
+		"en": "If you want to give a quiz, please write below"
+	},
+	"act_quiz": {
+		"ja": "クイズの問題",
+		"en": "Quiz questions"
+	},
+	"act_quiz_choice": {
+		"ja": "選択肢",
+		"en": "Choice"
+	},
+	"act_quiz_answer": {
+		"ja": "答え",
+		"en": "Answer"
+	},
+	"act_quiz_hint_url": {
+		"ja": "ヒントURL",
+		"en": "Hint URL"
+	}
+}
