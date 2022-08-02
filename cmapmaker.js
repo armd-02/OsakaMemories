@@ -1,331 +1,302 @@
-/*	Main Process */
-"use strict";
+class CMapMaker {
 
-// Global Variable
-var map;						// leaflet map object
-var Conf = {};					// Config Praams
-const LANG = (window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage).substr(0, 2) == "ja" ? "ja" : "en";
-const FILES = ["./baselist.html", "./data/config.json", './data/system.json', './data/overpass.json', `./data/category-${LANG}.json`, `data/datatables-${LANG}.json`, `./data/marker.json`];
-const glot = new Glottologist();
-
-// initialize
-console.log("Welcome to MapMaker.");
-window.addEventListener("DOMContentLoaded", function () {
-	let jqXHRs = [];
-	for (let key in FILES) { jqXHRs.push($.get(FILES[key])) };
-	$.when.apply($, jqXHRs).always(function () {
-		let arg = {}, baselist = arguments[0][0];								// Get Menu HTML
-		for (let i = 1; i <= 6; i++) arg = Object.assign(arg, arguments[i][0]);	// Make Config Object
-		Object.keys(arg).forEach(key1 => {
-			Conf[key1] = {};
-			Object.keys(arg[key1]).forEach((key2) => Conf[key1][key2] = arg[key1][key2]);
-		});
-
-		window.onresize = WinCont.window_resize;      	// 画面サイズに合わせたコンテンツ表示切り替え
-		glot.import("./data/glot.json").then(() => {	// Multi-language support
-			// document.title = glot.get("title");		// Title(no change / Google検索で日本語表示させたいので)
-			WinCont.splash(true);
-			cMapmaker.init(baselist);					// Mapmaker Initialize
-			Marker.init();								// Marker Initialize
-			WinCont.menu_make();
-			// Google Analytics
-			if (Conf.google.Analytics !== "") {
-				$('head').append('<script async src="https://www.googletagmanager.com/gtag/js?id=' + Conf.default.GoogleAnalytics + '"></script>');
-				window.dataLayer = window.dataLayer || [];
-				function gtag() { dataLayer.push(arguments); };
-				gtag('js', new Date());
-				gtag('config', Conf.google.Analytics);
-			};
-			glot.render();
-		});
-	});
-});
-
-var cMapmaker = (function () {
-	var view_license = false, _status = "initialize", last_modetime = 0;
-
-	return {
-		// Initialize
-		init: (baselist) => {
-			// Set Window Size(mapidのサイズ指定が目的)
-			WinCont.window_resize();
-
-			// initialize leaflet
-			map = leaflet.init();
-			leaflet.controlAdd("bottomleft", "zoomlevel", "");
-			leaflet.controlAdd("topleft", "baselist", baselist, "leaflet-control m-1");	// Make: base list
-			leaflet.locateAdd();
-			WinCont.window_resize();
-			cmap_events.map_zoom();														// Zoom 
-			$("#dataid").hover(
-				() => { map.scrollWheelZoom.disable(); map.dragging.disable() },
-				() => { map.scrollWheelZoom.enable(); map.dragging.enable() }
-			);
-
-			// get GoogleSpreadSheet
-			gSpreadSheet.get(Conf.google.AppScript, Conf.google.sheetName).then(json => {
-				poiCont.set_json(json);
-				cMapmaker.static_check().then(() => {		// static mode check(load local osmjson)
-					cMapmaker.poi_get().then(() => {		// get poidata(osm & google)
-						cMapmaker.poi_view();
-						WinCont.splash(false)
-						if (location.search !== "") {    	// 引数がある場合
-							let osmid = location.search.replace(/[?&]fbclid.*/, '').replace(/%2F/g, '/');    // facebook対策
-							let param = osmid.replace('-', '/').replace('=', '/').slice(1).split('.');
-							cMapmaker.detail_view(param[0], param[1]);
-						};
-						map.on('moveend', () => cmap_events.map_move());             				// マップ移動時の処理
-						map.on('zoomend', () => cmap_events.map_zoom());							// ズーム終了時に表示更新
-						cmap_events.map_move();
-						console.log("cmapmaker: initial end.");
-					});
-				});
-			});
-
-			// initialize last_modetime
-			cMapmaker.mode_change("map");
-		},
-
-		// check static osm mode
-		static_check: () => {
-			return new Promise((resolve, reject) => {
-				if (Conf.static.osmjson == "") {
-					resolve();
-				} else {
-					$.ajax({ "type": 'GET', "dataType": 'json', "url": Conf.static.osmjson, "cache": false }).done(function (data) {
-						OvPassCnt.set_osmjson(data);
-						resolve();
-					}).fail(function (jqXHR, statusText, errorThrown) {
-						console.log(statusText);
-						reject(jqXHR, statusText, errorThrown);
-					});;
-				}
-			})
-		},
-
-		// About license
-		licence: (once) => {
-			if ((once == 'once' && view_license == false) || once == undefined) {
-				let msg = { msg: glot.get("licence_message") + glot.get("more_message"), ttl: glot.get("licence_title") };
-				WinCont.modal_open({ "title": msg.ttl, "message": msg.msg, "mode": "close", callback_close: WinCont.modal_close });
-				view_license = true;
-			};
-		},
-
-		// mode change(list or map)
-		mode_change: (mode) => {
-			if (_status !== "mode_change" && (last_modetime + 300) < Date.now()) {
-				_status = "mode_change";
-				let params = { 'map': ['down', 'remove', 'start'], 'list': ['up', 'add', 'stop'] };
-				mode = !mode ? (list_collapse.classList.contains('show') ? 'map' : 'list') : mode;
-				console.log('mode_change: ' + mode + ' : ' + last_modetime + " : " + Date.now());
-				list_collapse_icon.className = 'fas fa-chevron-' + params[mode][0];
-				list_collapse.classList[params[mode][1]]('show');
-				if (mode == "list") {
-					listTable.init();
-					listTable.datalist_make(Object.values(Conf.targets))
-				};
-				last_modetime = Date.now();
-				_status = "normal";
-			};
-		},
-
-		// Poiを表示させる
-		poi_view: () => {
-			if (map.getZoom() >= Conf.default.iconViewZoom) {
-				Object.values(Conf.targets).forEach(key => Marker.set(key));
-			} else {
-				Marker.all_clear();
-			};
-		},
-
-		// OSMとGoogle SpreadSheetからPoiを取得してリスト化
-		poi_get: (targets) => {
-			return new Promise((resolve, reject) => {
-				console.log("cMapmaker: poi_get start...");
-				var keys = (targets !== undefined && targets !== "") ? targets : Object.values(Conf.targets);
-				if (map.getZoom() < Conf.default.iconViewZoom) {
-					console.log("cMapmaker: poi_get end(more zoom).");
-					resolve();
-				} else {
-					OvPassCnt.get(keys).then(ovanswer => {
-						poiCont.all_clear();
-						poiCont.add_geojson(ovanswer);
-						console.log("cMapmaker: poi_get end(success).");
-						resolve();
-					}) /* .catch((jqXHR, statusText, errorThrown) => {
-						console.log("cMapmaker: poi_get end(overror). " + statusText);
-						// cMapmaker.update();
-						reject();
-					}); */
-				};
-			});
-		},
-
-		qr_add: (target, osmid) => {
-			let marker = Marker.get(target, osmid);
-			if (marker !== undefined) {
-				let wiki = marker.mapmaker_lang.split(':');
-				let url = encodeURI(`https://${wiki[0]}.${Conf.osm.wikipedia.domain}/wiki/${wiki[1]}`);
-				let pix = map.latLngToLayerPoint(marker.getLatLng());
-				let ll2 = map.layerPointToLatLng(pix);
-				basic.getWikipedia(wiki[0], wiki[1]).then(text => Marker.qr_add(target, osmid, url, ll2, text));
-			};
-		},
-
-		status: () => { return _status }, // ステータスを返す
-
-		detail_view: (osmid, openid) => {	// PopUpを表示(marker,openid=actlst.id)
-			let tags = poiCont.get_osmid(osmid).geojson.properties;
-			let micon = tags.mapmaker_icon;
-			let title = `<img src="./image/${micon}">${tags.name == undefined ? glot.get("undefined") : tags.name}`;
-			let message = "";
-			WinCont.modal_progress(0);
-
-			// append OSM Tags(仮…テイクアウトなど判別した上で最終的には分ける)
-			message += modal_osmbasic.make(tags);
-
-			// append wikipedia
-			if (tags.wikipedia !== undefined) {
-				message += modal_wikipedia.element();
-				WinCont.modal_progress(100);
-				modal_wikipedia.make(tags).then(html => {
-					modal_wikipedia.set_dom(html);
-					WinCont.modal_progress(0);
-				});
-			};
-
-			// append activity
-			let actlists = poiCont.get_actlist(osmid);
-			if (actlists.length > 0) message += modal_activities.make(actlists, openid);
-
-			history.replaceState('', '', location.pathname + "?" + osmid + (!openid ? "" : "." + openid) + location.hash);
-
-			WinCont.modal_open({
-				"title": title, "message": message, "mode": "close", "callback_close": () => {
-					WinCont.modal_close();
-					history.replaceState('', '', location.pathname + location.hash);
-				}
-			});
-			if (openid !== undefined) document.getElementById("modal_" + openid).scrollIntoView();
-
-			// set PopUp
-			$('[data-toggle="popover"]').popover();
-		},
-
-		url_share: (openid) => {
-			function execCopy(string) {
-				// ClipBord Copy
-				let pre = document.createElement('pre');
-				pre.style.webkitUserSelect = 'auto';
-				pre.style.userSelect = 'auto';
-
-				let text = document.createElement("div");
-				text.appendChild(pre).textContent = string;
-				text.style.position = 'fixed';
-				text.style.right = '200%';
-				document.body.appendChild(text);
-				document.getSelection().selectAllChildren(text);
-				let copy = document.execCommand("copy");
-				document.body.removeChild(text);
-				return copy;
-			};
-			let osmid = location.search.replace(/[?&]fbclid.*/, '');    // facebook対策
-			let param = osmid.replace('-', '/').replace('=', '/').slice(1).split('.');
-			execCopy(location.protocol + "//" + location.hostname + location.pathname + "?" + param[0] + (!openid ? "" : "." + openid) + location.hash);
-		},
-
-		// Try Again
-		all_clear: () => {
-			WinCont.modal_open({
-				title: glot.get("restart_title"),
-				message: glot.get("restart_message"),
-				mode: "yesno",
-				callback_yes: () => {
-					cMapmaker.custom(false);
-					Marker.all_clear();
-					poiCont.all_clear();
-					WinCont.modal_close();
-				},
-				callback_no: () => WinCont.modal_close()
-			});
-		}
+	constructor() {
+		this.status = "initialize";
+		this.detail = false;				// detail_view表示中はtrue
+		this.open_osmid = "";				// detail_view表示中はosmid
+		this.last_modetime = 0;
+		this.mode = "map";
 	};
-})();
+
+	licence() {			// About license
+		let msg = { msg: glot.get("licence_message") + glot.get("more_message"), ttl: glot.get("licence_title") };
+		winCont.modal_open({ "title": msg.ttl, "message": msg.msg, "mode": "close", callback_close: winCont.modal_close, "menu": false });
+	}
+
+	mode_change(newmode) {	// mode change(list or map)
+		if (this.status !== "mode_change" && (this.last_modetime + 300) < Date.now()) {
+			this.status = "mode_change";
+			let params = { 'map': ['fas fa-list', 'remove', 'start'], 'list': ['fas fa-map', 'add', 'stop'] };
+			this.mode = !newmode ? (list_collapse.classList.contains('show') ? 'map' : 'list') : newmode;
+			console.log('mode_change: ' + this.mode + ' : ' + this.last_modetime + " : " + Date.now());
+			leaflet.enable(this.mode == "map");
+			list_collapse_icon.className = params[this.mode][0];
+			list_collapse.classList[params[this.mode][1]]('show');
+			this.last_modetime = Date.now();
+			this.status = "normal";
+			mapid.focus();
+		};
+	}
+
+	load_static() {	// check static osm mode
+		return new Promise((resolve, reject) => {
+			if (!Conf.static.mode) {		// static mode以外は即終了
+				resolve("cMapmaker: no static mode");
+			} else {
+				$.ajax({ "type": 'GET', "dataType": 'json', "url": Conf.static.osmjson, "cache": false }).done(function (data) {
+					let ovanswer = OvPassCnt.set_osmjson(data);
+					poiCont.add_geojson(ovanswer);
+					resolve(ovanswer);
+				}).fail(function (jqXHR, statusText, errorThrown) {
+					console.log("cMapmaker: " + statusText);
+					reject(jqXHR, statusText, errorThrown);
+				});;
+			}
+		})
+	}
+
+	view_poi(targets) {		// Poiを表示させる
+		console.log("cMapmaker: view_poi: Start.");
+		targets = targets[0] == "-" ? Conf.targets : targets;	// '-'はすべて表示
+		poiMarker.all_clear();
+		targets.forEach((target) => {
+			// targetがPoiViewZoom範囲に含まれた or アクティビティならPOI表示
+			let zm = map.getZoom();
+			let ft = Conf.targets.indexOf(target) < 0 ? "activity" : target;
+			let actonly = ft == "activity" ? true : false;
+			if (zm >= Conf.PoiViewZoom[ft]) poiMarker.set(target, actonly);
+		});
+	}
+
+	get_poi(targets) {		// OSMとGoogle SpreadSheetからPoiを取得してリスト化
+		return new Promise((resolve) => {
+			console.log("cMapmaker: get_poi: Start");
+			winCont.spinner(true);
+			var keys = (targets !== undefined && targets !== "") ? targets : Object.values(Conf.targets);
+			if ((map.getZoom() < Conf.default.PoiLoadZoom) && !Conf.static.mode) {
+				winCont.spinner(false);
+				console.log("[success]cMapmaker: get_poi End(more zoom).");
+				resolve({ "update": false });
+			} else {
+				OvPassCnt.get(keys, status_write).then(ovanswer => {
+					winCont.spinner(false);
+					poiCont.add_geojson(ovanswer);
+					console.log("[success]cMapmaker: get_poi End.");
+					global_status.innerHTML = "";
+					resolve({ "update": true });
+				}).catch(() => {
+					winCont.spinner(false);
+					console.log("[error]cMapmaker: get_poi end.");
+					global_status.innerHTML = "";
+					resolve({ "update": false });
+				});
+			};
+		});
+
+		function status_write(progress) {
+			global_status.innerHTML = progress;
+		}
+	}
+
+	qr_add(target, osmid) {			// QRコードを表示
+		let marker = poiMarker.get(target, osmid);
+		if (marker !== undefined) {
+			let wiki = marker.mapmaker_lang.split(':');
+			let url = encodeURI(`https://${wiki[0]}.${Conf.osm.wikipedia.domain}/wiki/${wiki[1]}`);
+			let pix = map.latLngToLayerPoint(marker.getLatLng());
+			let ll2 = map.layerPointToLatLng(pix);
+			basic.getWikipedia(wiki[0], wiki[1]).then(datas => poiMarker.qr_add(target, osmid, url, ll2, datas[0]));
+		};
+	}
+
+	detail_view(osmid, openid) {	// PopUpを表示(marker,openid=actlst.id)
+		const detail_close = () => {
+			let catname = list_category.value !== "-" ? `?category=${list_category.value}` : "";
+			winCont.modal_close();
+			history.replaceState('', '', location.pathname + catname + location.hash);
+			cMapmaker.open_osmid = "";
+			cMapmaker.detail = false;
+		};
+		if (cMapmaker.detail) detail_close();
+		let osmobj = poiCont.get_osmid(osmid);
+		let tags = osmobj == undefined ? { "targets": [] } : osmobj.geojson.properties;
+		tags["*"] = "*";
+		let target = osmobj == undefined ? "*" : osmobj.targets[0];
+		let category = poiCont.get_catname(tags);
+		let title = "", message = "";
+
+		for (let i = 0; i < Conf.osm[target].titles.length; i++) {
+			if (tags[Conf.osm[target].titles[i]] !== void 0) {
+				title = `<img src="./${Conf.icon.path}/${poiMarker.get_icon(tags)}">${tags[Conf.osm[target].titles[i]]}`;
+				break;
+			};
+		};
+		if (title == "") title = category[0];
+		if (title == "") title = glot.get("undefined");
+		winCont.menu_make(Conf.detail_menu, "modal_menu");
+		winCont.modal_progress(0);
+		cMapmaker.open_osmid = osmid;
+
+		// append OSM Tags(仮…テイクアウトなど判別した上で最終的には分ける)
+		message += modal_osmbasic.make(tags);
+
+		// append wikipedia
+		if (tags.wikipedia !== undefined) {
+			message += modal_wikipedia.element();
+			winCont.modal_progress(100);
+			modal_wikipedia.make(tags).then(html => {
+				modal_wikipedia.set_dom(html);
+				winCont.modal_progress(0);
+			});
+		};
+
+		// append activity
+		let actlists = poiCont.get_actlist(osmid);
+		if (actlists.length > 0) message += modal_activities.make(actlists);
+		let catname = list_category.value !== "-" ? `&category=${list_category.value}` : "";
+		history.replaceState('', '', location.pathname + "?" + osmid + (!openid ? "" : "." + openid) + catname + location.hash);
+		winCont.modal_open({ "title": title, "message": message, "append": Conf.detail_view.buttons, "mode": "close", "callback_close": detail_close, "menu": true, "openid": openid });
+		//if (openid !== undefined && actlists.length > 0) document.getElementById(openid.replace("/", "")).scrollIntoView();
+
+		$('[data-toggle="popover"]').popover();			// set PopUp
+		cMapmaker.detail = true;
+	}
+
+	url_share(actid) {			// URL共有機能
+		function execCopy(string) {
+			let pre = document.createElement('pre');			// ClipBord Copy
+			pre.style.userSelect = 'auto';
+			let text = document.createElement("div");
+			text.appendChild(pre).textContent = string;
+			text.style.position = 'fixed';
+			text.style.right = '200%';
+			document.body.appendChild(text);
+			document.getSelection().selectAllChildren(text);
+			let copy = document.execCommand("copy");
+			document.body.removeChild(text);
+			return copy;
+		};
+		actid = actid == undefined ? "" : "." + actid;
+		let url = location.origin + location.pathname + location.search + actid + location.hash;
+		execCopy(url);
+	}
+
+	playback(flist) {					// 指定したリストを連続再生()
+		const view_control = (list, idx) => {
+			if (list.length >= (idx + 1)) {
+				listTable.select(list[idx][0]);
+				poiMarker.select(list[idx][0], false);
+				if (this.status == "playback") {
+					setTimeout(view_control, speed_calc(), list, idx + 1);
+				};
+			} else {
+				listTable.disabled(false);
+				listTable.heightSet(listTable.height + "px");	// mode end
+				this.status = "normal";							// mode stop
+				icon_change("play");
+			};
+		};
+		const icon_change = (mode) => { list_playback.className = 'fas fa-' + mode };
+		const speed_calc = () => { return ((parseInt(list_speed.value) / 100) * Conf.listTable.playback.timer) + 100 };
+		if (this.status !== "playback") {
+			listTable.disabled(true);
+			listTable.heightSet(listTable.height / 4 + "px");
+			leaflet.zoomSet(Conf.listTable.playback.zoomLevel);
+			cMapmaker.mode_change("list");
+			this.status = "playback";
+			icon_change("stop");
+			setTimeout(view_control, speed_calc(), flist, 0);
+		} else {
+			listTable.disabled(false);
+			listTable.heightSet(listTable.height + "px");		// mode end
+			this.status = "normal";								// mode stop
+			icon_change("play");
+		}
+	}
+
+	download() {
+		const linkid = "temp_download";
+		let csv = "", link;
+		Conf.listTable.targets.forEach(target => { csv += basic.makeArray2CSV(poiCont.list(target)) });
+		let bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+		let blob = new Blob([bom, csv], { 'type': 'text/csv' });
+
+		link = document.getElementById(linkid) ? document.getElementById(linkid) : document.createElement("a");
+		link.id = linkid;
+		link.href = URL.createObjectURL(blob);
+		link.download = "my_data.csv";
+		link.dataset.downloadurl = ['text/plain', link.download, link.href].join(':');
+		document.body.appendChild(link);
+		link.click();
+	}
+};
+var cMapmaker = new CMapMaker();
 
 class cMapEvents {
 
 	constructor() {
-		this.busy = false;
+		this.busy = 0;
 		this.id = 0;
+		this.timeout;
+	}
+
+	init() {
+		map.on('moveend', () => cmap_events.map_move());   						// マップ移動時の処理
+		map.on('zoomend', () => cmap_events.map_zoom());						// ズーム終了時に表示更新
+		list_keyword.addEventListener('change', cmap_events.keyword_change);
+		list_category.addEventListener('change', cmap_events.category_change);	// category change
+	}
+
+	map_move() {                							// map.moveend発生時のイベント
+		return new Promise((resolve, reject) => {
+			this.#map_move_promise(resolve, reject);
+		});
 	};
 
-	map_move(e) {                					// map.moveend発生時のイベント
-		console.log("cmapmaker: move event start.");
-		if (this.busy > 1) return;					// 処理中の時は戻る
-		if (this.busy == 1) clearTimeout(this.id);	// no break and cancel old timer.
+	#map_move_promise(resolve, reject) {
+		console.log("cMapEvents: map_move Start.");
+		if (this.busy > 1) { reject(); return; };		// 処理中の時は戻る
+		if (this.busy == 1) clearTimeout(this.id);		// no break and cancel old timer.
 		this.busy = 1;
 		this.id = setTimeout(() => {
+			console.log("cMapEvents: map_move: End.");
 			this.busy = 2;
-			cMapmaker.poi_get().then(() => {
-				console.log("cmapmaker: move event end.");
-				cMapmaker.poi_view();
+			cMapmaker.get_poi().then((status) => {
 				this.busy = 0;
-			});
-		}, 2000);
-	};
+				let targets = (Conf.listTable.targets.indexOf("targets") > -1) ? [list_category.value] : ["-"];
+				cMapmaker.view_poi(targets);	// in targets
+				if (Conf.listTable.update_mode == "static" || status.update) {
+					listTable.make();					// view all list
+					listTable.make_category(Conf.listTable.targets);
+					resolve();
+				} else {
+					cmap_events.#map_move_promise(resolve, reject);	// 失敗時はリトライ(接続先はoverpass.jsで変更)
+				};
+			})/* .catch(() => {
+				this.busy = 0;
+				console.log("cMapEvents: map_move: Reject");
+				reject();
+			}); */
+		}, 700);
+	}
 
 	map_zoom() {				// View Zoom Level & Status Comment
-		let nowzoom = map.getZoom();
+		let poizoom = false;
+		for (let [key, value] of Object.entries(Conf.PoiViewZoom)) {
+			if (map.getZoom() >= value) poizoom = true;
+		}
 		let message = `${glot.get("zoomlevel")}${map.getZoom()} `;
-		if (nowzoom < Conf.default.iconViewZoom) message += `<br>${glot.get("morezoom")}`;
+		if (!poizoom) message += `<br>${glot.get("morezoom")}`;
 		$("#zoomlevel").html("<h2 class='zoom'>" + message + "</h2>");
 	};
-};
-var cmap_events = new cMapEvents();
 
-class FromControl {
-	// Google Spreadsheet Control Form
-	form_edit(json) {
-		listTable.select(json['OSMID']);
-		$("#osmid").html(json['OSMID']);
-		$("#area").val(json['場所']);
-		$("#planting").val(formatDate(new Date(json['植樹日']), "YYYY-MM-DD"));
-		$("#name").val(json['愛称']);
-		$("#picture_url").val(json['写真アドレス']);
-
-		let picurl = json['写真アドレス'];
-		let pattern = new RegExp('^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$', 'i');
-		if (pattern.test(picurl) && picurl !== "") {
-			console.log("picture url is valid");
-			$("#picture_img").attr('src', picurl);
-			$("#picture_img").show();
-		} else {
-			console.log("picture url is invalid");
-			$("#picture_img").attr('src', "");
-			$("#picture_img").hide();
+	keyword_change() {        				// キーワード検索
+		if (cmap_events.timeout > 0) {
+			window.clearTimeout(cmap_events.timeout);
+			cmap_events.timeout = 0;
 		};
-		$("#memo").val(json['メモ']);
-		$('#PoiEdit_Modal').modal({ backdrop: false, keyboard: false });
+		cmap_events.timeout = window.setTimeout(() => {
+			listTable.filter_keyword();
+			cMapmaker.mode_change('list');
+		}, 500);
 	};
 
-	form_save(callback) {
-		let commit = {};
-		if (confirm("この内容で登録しますか？")) {
-			$('#PoiEdit_Button').hide();
-			commit['index'] = $('#index').val();
-			commit['OSMID'] = $('#osmid').html();
-			commit['場所'] = $('#area').val();
-			commit['植樹日'] = $('#planting').val().replace(/-/g, "/");
-			commit['愛称'] = $('#name').val();
-			commit['写真アドレス'] = $('#picture_url').val();
-			commit['メモ'] = $('#memo').val();
-			console.log(commit);
-			PoiData.set(commit, false).then(() => callback());
-		};
-		$('#PoiEdit_Modal').modal("hide");
-		return;
+	category_change() {			// change category
+		listTable.filter_category(list_category.value);
+		//let targets = (Conf.listTable.targets.indexOf("targets") > -1) ? [list_category.value] : ["-"];
+		cMapmaker.view_poi([list_category.value]);	// in targets
+		let catname = list_category.value !== "-" ? `?category=${list_category.value}` : "";
+		history.replaceState('', '', location.pathname + catname + location.hash);
+		leaflet.enable(cMapmaker.mode == "map");
 	};
-};
-var form = new FromControl();	// Google Spreadsheet Control Form
-
+}
