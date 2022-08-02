@@ -43,6 +43,10 @@
 		"ja": "お宝",
 		"en": "Treasure"
 	},
+	"memories_receptiondate": {
+		"ja": "受付日: ",
+		"en": "Update: "
+	},
 	"memories_age": {
 		"ja": "年代",
 		"en": "age"
