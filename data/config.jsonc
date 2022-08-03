@@ -2,8 +2,8 @@
     "default": {
         "keep_default_view": false,
         "default_view": [
-            34.6811,
-            135.5168
+            34.6701,
+            135.5225
         ],
         "_maxbounds": "", // [[左上のlat,lng],[右下のlat,lng]]
         "maxbounds": [
@@ -24,9 +24,11 @@
         "bookmark": true
     },
     "PoiViewZoom": {
-        "activity": 11
+        "activity": 11,
+        "library": 13
     },
     "targets": [
+        "library",
         "activity"
     ],
     "listTable": {
@@ -48,7 +50,7 @@
         "targetName": "activity"
     },
     "splash": {
-        "url": "./image/splash.jpg"
+        "url": "./image/splash.png"
     },
     "static": {
         "mode": true,
