@@ -1,0 +1,121 @@
+// Community Mapmaker System Config
+{
+    "icon": {
+        "path": "maki-icon",
+        "circle": 32,
+        "attention": 48
+    },
+    "system": {
+        "OverPassServer": [
+            "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+            "https://overpass.kumi.systems/api/interpreter",
+            "https://overpass-api.de/api/interpreter"
+        ]
+    },
+    "tile": {
+        "MapTiler(memories)": {
+            "style": "https://api.maptiler.com/maps/2e4db38a-b862-444d-bcfe-fefe51429073/style.json?key=Eq2IyrHsOEGFU1W1fvd7"
+        },
+        "OSMFJ": {
+            "style": "./data/style.json"
+        },
+        "OSM_Standard": {
+            "style": {
+                "version": 8,
+                "sources": {
+                    "rtile": {
+                        "type": "raster",
+                        "tiles": [
+                            "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        ],
+                        "tileSize": 256,
+                        "maxzoom": 19,
+                        "attribution": "<a href=\"https://openstreetmap.org\">&copy OpenStreetMap contributors</a>"
+                    }
+                },
+                "layers": [
+                    {
+                        "id": "raster-tiles",
+                        "type": "raster",
+                        "source": "rtile"
+                    }
+                ]
+            }
+        },
+        "GSI_pale": {
+            "style": {
+                "version": 8,
+                "sources": {
+                    "rtile": {
+                        "type": "raster",
+                        "tiles": [
+                            "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
+                        ],
+                        "tileSize": 256,
+                        "maxzoom": 18,
+                        "attribution": "<a href='https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html'>国土地理院(淡色) | &copy OpenStreetMap contributors</a>"
+                    }
+                },
+                "layers": [
+                    {
+                        "id": "raster-tiles",
+                        "type": "raster",
+                        "source": "rtile"
+                    }
+                ]
+            }
+        },
+        "GSI_ort": {
+            "style": {
+                "version": 8,
+                "sources": {
+                    "rtile": {
+                        "type": "raster",
+                        "tiles": [
+                            "https://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg"
+                        ],
+                        "tileSize": 256,
+                        "maxzoom": 18,
+                        "attribution": "<a href='https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html'>国土地理院(オルソ画像) | &copy OpenStreetMap contributors</a>"
+                    }
+                },
+                "layers": [
+                    {
+                        "id": "raster-tiles",
+                        "type": "raster",
+                        "source": "rtile",
+                    }
+                ]
+            }
+        }
+    },
+    "menu_list": {
+        "template": "<a class='dropdown-item'><span></span></a><span class='dropdown-item'></span>",
+        "divider": "<div class='dropdown-divider'></div>"
+    },
+    "effect": {
+        "icon": {
+            "x": 0,
+            "y": 0
+        },
+        "text": {
+            "size": 12,
+            "view": true
+        }
+    },
+    "style": {
+        "circle": {
+            "radius": 0,
+            "color": "#000080",
+            "fillColor": "#0000A0",
+            "Opacity": 0.1,
+            "fillOpacity": 0.1,
+            "timer": 1000
+        },
+        "text": {
+            "view": true,
+            "size": 14,
+            "color": "black"
+        }
+    }
+}

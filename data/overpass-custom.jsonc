@@ -1,44 +1,23 @@
 {
     "osm": {
-        "KusatsuTreasure_green": {
+        "Playgrounds_Area": {
             "overpass": [
-                "node[\"tourism\"]",
-                "way[\"tourism\"]",
-                "node[\"leisure\"]",
-                "way[\"leisure\"]",
-                "way[\"landuse\"]"
+                "node[\"leisure\"=\"park\"]",
+                "way[\"leisure\"=\"park\"]",
+                "node[\"leisure\"=\"playground\"]",
+                "way[\"leisure\"=\"playground\"]",
+                "way[\"landuse\"=\"recreation_ground\"]",
+                "relation[\"leisure\"=\"park\"]",
+                "relation[\"leisure\"=\"playground\"]",
+                "relation[\"landuse\"=\"recreation_ground\"]"
             ],
             "tags": [
                 "leisure=park",
                 "leisure=playground",
-                "leisure=garden",
-                "landuse=farmland",
-                "landuse=allotments",
-                "tourism=museum",
-                "tourism=artwork",
-                "tourism=gallery"
+                "landuse=recreation_ground"
             ],
             "expression": {
-                "stroke": "#50B050",
-                "stroke-width": 4
-            },
-            "titles": [
-                "name",
-                "operator"
-            ]
-        },
-        "KusatsuTreasure_blue": {
-            "overpass": [
-                "way[\"natural\"]",
-                "relation[\"natural\"=\"water\"]"
-            ],
-            "tags": [
-                "leisure=swimming_pool",
-                "natural=water",
-                "landuse=reservoir"
-            ],
-            "expression": {
-                "stroke": "#5050B0",
+                "stroke": "#409040",
                 "stroke-width": 2
             },
             "titles": [
@@ -46,59 +25,23 @@
                 "operator"
             ]
         },
-        "KusatsuTreasure_gray": {
+        "Playgrounds_Poi": {
             "overpass": [
-                "node[\"amenity\"]",
-                "way[\"amenity\"]",
-                "way[\"emergency\"]",
-                "node[\"emergency\"]",
-                "node[\"shop\"]",
-                "way[\"shop\"]",
-                "way[\"social_facility\"]",
-                "node[\"social_facility\"]",
-                "way[\"man_made\"]",
-                "node[\"historic\"]",
-                "way[\"historic\"]",
-                "node[\"highway\"=\"bus_stop\"]",
-                "node[\"public_transport\"=\"station\"]",
-                "way[\"public_transport\"=\"station\"]",
-                "node[\"railway\"=\"station\"]",
-                "way[\"railway\"=\"station\"]"
+                "node[\"playground\"]",
+                "way[\"playground\"]",
+                "area[\"playground\"]",
+                "node[\"amenity\"=\"toilets\"]",
+                "way[\"amenity\"=\"toilets\"]",
+                "node[\"amenity\"=\"drinking_water\"]",
+                "way[\"amenity\"=\"drinking_water\"]"
             ],
             "tags": [
-                "amenity=arts_centre",
-                "amenity=bench",
-                "amenity=cafe",
-                "amenity=community_centre",
-                "amenity=clock",
-                "amenity=drinking_water",
-                "amenity=restaurant",
-                "amenity=fast_food",
-                "amenity=shelter",
-                "amenity=post_box",
-                "amenity=townhall",
-                "amenity=library",
-                "amenity=toilets",
-                "amenity=theatre",
-                "amenity=theatre",
-                "amenity=place_of_worship",
-                "amenity=telephone",
-                "emergency",
-                "highway=bus_stop",
-                "historic",
-                "leisure=amusement_arcade",
-                "man_made=drinking_water",
-                "man_made=tower",
-                "railway=station",
-                "public_transport=station",
-                "social_facility",
-                "shop",
-                "tourism=information",
-                "tower:type=bell_tower"
+                "playground",
+                "amenity"
             ],
             "expression": {
-                "stroke": "#B0B0B0",
-                "stroke-width": 2
+                "stroke": "#c0c0c0",
+                "stroke-width": 1
             },
             "titles": [
                 "name",

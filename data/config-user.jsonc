@@ -1,0 +1,108 @@
+// Community Mapmaker Config
+// Change to "fooBar" Key
+{
+    "map": {
+        "tileName": "MapTiler(memories)", // タイル一覧は config-system.jsonc へ
+        "viewCenter": [
+            135.5225,
+            34.6701
+        ],
+        "viewPitch": 40,
+        "maxBounds": [
+            [
+                135.30000,
+                34.54000
+            ],
+            [
+                135.80000,
+                34.80000
+            ]
+        ],
+        "initZoom": 12,
+        "maxZoom": 16,
+        "modalZoom": 16 // モーダルダイアログ表示時のズームサイズ   
+    },
+    "view": {
+        "poiZoom": {
+            // アイコンの前後位置は後ろの方が手前になる
+            "library": 11,
+            "activity": 11
+        },
+        "poiFilter": "filter" // listTable更新時 all:全て / filter:絞り込み / "":非連動
+    },
+    "etc": {
+        "editMode": false, // 編集メニューの表示/非表示
+        "thumbnailWidth": "320",
+        "splashUrl": "./image/splash.png"
+    },
+    "listTable": {
+        "category": "activity", // カテゴリ選択 / activity:アクティビティリスト / tags:タグ
+        "target": "activity", // target名:overpass名を表示 / activity:google sheetsを表示 / tags:osm poi種別名を表示
+        "allActs": true, // true: 全てのactivityを常に表示 / false: 画面内のActivityのみ表示
+        "playback": {
+            "view": false,
+            "zoomLevel": 15,
+            "timer": 4000
+        },
+        "download": false
+    },
+    "google": {
+        "Analytics": "G-78EQW3DYK8",
+        "AppScript": "https://script.google.com/macros/s/AKfycbyXoNiloF2anU-k2sQ1Z1Xq15hCpvmEPHJzv0qB5_E1h6Apiyr9YJwyrwCy8k8aRb6zTA/exec",
+        "targetName": "activity"
+    },
+    "static": {
+        "mode": true,
+        "osmjson": "./data/osaka_city_library.json"
+    },
+    "wikipedia": {
+        "marker": "wikipedia.svg",
+        "api_": "wikipedia.org/w/api.php?format=json&action=query&prop=extracts%7Cimages&exintro=&explaintext=&titles=",
+        "api": "wikipedia.org/api/rest_v1/page/summary/",
+        "domain": "wikipedia.org",
+        "tag": "wikipedia",
+        "image": true
+    },
+    "menu": {
+        // トップ画面のメニュー
+        "main": [
+            {
+                "glot-model": "licence_title",
+                "linkto": "javascript:cMapMaker.licence()",
+                "divider": false
+            },
+            {
+                "glot-model": "owner",
+                "linkto": "https://github.com/K-Sakanoshita/OsakaMemories/",
+                "divider": false
+            },
+            {
+                "glot-model": "openstreetmap",
+                "linkto": "https://www.openstreetmap.org/about",
+                "divider": false
+            }
+        ],
+        // 詳細表示のハンバーガーメニュー
+        "modal": [
+            {
+                "glot-model": "osm_open",
+                "linkto": "javascript:winCont.osm_open(cMapMaker.open_osmid)",
+                "divider": false
+            },
+            {
+                "glot-model": "button_close",
+                "linkto": "javascript:winCont.modal_close()",
+                "divider": false
+            }
+        ],
+        // 詳細表示の追加ボタン 
+        "buttons": [
+            {
+                "btn_class": "btn btn-light border-secondary",
+                "code": "javascript:cMapMaker.shareURL()",
+                "icon_class": "fas fa-clone",
+                "btn_glot_name": "share_link"
+            }
+        ]
+    }
+}
