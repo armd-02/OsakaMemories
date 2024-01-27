@@ -21,14 +21,31 @@
                 "tourism=gallery",
                 "amenity=arts_centre"
             ],
-            "expression":{
-                "stroke":"#A06060",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#A06060",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
                 "operator",
                 "note"
+            ]
+        },
+        "bath": {
+            "overpass": [
+                "node[\"amenity\"=\"public_bath\"]",
+                "way[\"amenity\"=\"public_bath\"]"
+            ],
+            "tags": [
+                "amenity=public_bath"
+            ],
+            "expression": {
+                "stroke": "#808080",
+                "stroke-width": 1
+            },
+            "titles": [
+                "name",
+                "operator"
             ]
         },
         "pub": {
@@ -45,9 +62,9 @@
                 "amenity=bar",
                 "amenity=pub"
             ],
-            "expression":{
-                "stroke":"#808080",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#808080",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -68,9 +85,9 @@
                 "amenity=fast_food",
                 "amenity=cafe"
             ],
-            "expression":{
-                "stroke":"#705050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#705050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -80,14 +97,23 @@
         "shop": {
             "overpass": [
                 "node[\"shop\"]",
-                "way[\"shop\"]"
+                "way[\"shop\"]",
+                "node[\"amenity\"=\"cinema\"]",
+                "way[\"amenity\"=\"cinema\"]",
+                "node[\"amenity\"=\"coworking_space\"]",
+                "way[\"amenity\"=\"coworking_space\"]",
+                "node[\"craft\"=\"photographer\"]",
+                "way[\"craft\"=\"photographer\"]"                
             ],
             "tags": [
-                "shop"
+                "shop",
+                "amenity=cinema",
+                "amenity=coworking_space",
+                "craft=photographer"
             ],
-            "expression":{
-                "stroke":"#507070",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#507070",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -105,9 +131,9 @@
                 "natural=wood",
                 "landuse=forest"
             ],
-            "expression":{
-                "stroke":"#508050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#508050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -121,9 +147,9 @@
             "tags": [
                 "natural=tree"
             ],
-            "expression":{
-                "stroke":"#509050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#509050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -149,9 +175,9 @@
                 "takeaway",
                 "shop"
             ],
-            "expression":{
-                "stroke":"#705070",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#705070",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -169,9 +195,9 @@
                 "social_facility=shelter",
                 "emergency"
             ],
-            "expression":{
-                "stroke":"#505070",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#505070",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -187,27 +213,33 @@
             "tags": [
                 "amenity=townhall"
             ],
-            "expression":{
-                "stroke":"#404040",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#404040",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
                 "operator"
             ]
         },
-        "hospital":{
+        "hospital": {
             "overpass": [
                 "relation[\"amenity\"=\"hospital\"]",
                 "way[\"amenity\"=\"hospital\"]",
-                "node[\"amenity\"=\"hospital\"]"
+                "node[\"amenity\"=\"hospital\"]",
+                "way[\"amenity\"=\"clinic\"]",
+                "node[\"amenity\"=\"clinic\"]",
+                "way[\"amenity\"=\"doctors\"]",
+                "node[\"amenity\"=\"doctors\"]"
             ],
             "tags": [
-                "amenity=hospital"
+                "amenity=hospital",
+                "amenity=clinic",
+                "amenity=doctors"
             ],
-            "expression":{
-                "stroke":"#606090",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#606090",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -223,9 +255,9 @@
             "tags": [
                 "amenity=library"
             ],
-            "expression":{
-                "stroke":"#606090",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#606090",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -241,9 +273,9 @@
             "tags": [
                 "tourism=museum"
             ],
-            "expression":{
-                "stroke":"#606060",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#606060",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -258,9 +290,9 @@
             "tags": [
                 "amenity=telephone"
             ],
-            "expression":{
-                "stroke":"#606060",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#606060",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -270,14 +302,20 @@
         "theatre": {
             "overpass": [
                 "node[\"amenity\"=\"theatre\"]",
-                "way[\"amenity\"=\"theatre\"]"
+                "way[\"amenity\"=\"theatre\"]",
+                "node[\"amenity\"=\"studio\"]",
+                "way[\"amenity\"=\"studio\"]",
+                "node[\"amenity\"=\"nightclub\"]",
+                "way[\"amenity\"=\"nightclub\"]"
             ],
             "tags": [
-                "amenity=theatre"
+                "amenity=theatre",
+                "amenity=nightclub",
+                "amenity=studio"
             ],
-            "expression":{
-                "stroke":"#705070",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#705070",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -292,9 +330,9 @@
             "tags": [
                 "amenity=community_centre"
             ],
-            "expression":{
-                "stroke":"#505070",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#505070",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -326,9 +364,9 @@
                 "tower:type=bell_tower",
                 "landuse=recreation_ground"
             ],
-            "expression":{
-                "stroke":"#508050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#508050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -352,9 +390,9 @@
                 "landuse=grass",
                 "landuse=aquaculture"
             ],
-            "expression":{
-                "stroke":"#508050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#508050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -369,42 +407,109 @@
             "tags": [
                 "tourism=information"
             ],
-            "expression":{
-                "stroke":"#808080",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#808080",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
                 "operator"
             ]
         },
-        "wayside_shrine": {
+        "historic_area": {
             "overpass": [
-                "node[\"historic\"=\"wayside_shrine\"]",
-                "way[\"historic\"=\"wayside_shrine\"]"
+                "node[\"historic\"=\"archaeological_site\"]",
+                "way[\"historic\"=\"archaeological_site\"]",
+                "node[\"historic\"=\"battlefield\"]",
+                "way[\"historic\"=\"battlefield\"]",
+                "node[\"historic\"=\"building\"]",
+                "way[\"historic\"=\"building\"]",
+                "node[\"historic\"=\"manor\"]",
+                "way[\"historic\"=\"manor\"]",
+                "node[\"historic\"=\"castle\"]",
+                "way[\"historic\"=\"castle\"]",
+                "node[\"historic\"=\"fort\"]",
+                "way[\"historic\"=\"fort\"]"
             ],
             "tags": [
-                "historic=wayside_shrine"
+                "historic=archaeological_site",
+                "historic=battlefield",
+                "historic=building",
+                "historic=manor",
+                "historic=castle",
+                "historic=fort"
             ],
-            "expression":{
-                "stroke":"#505050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#606060",
+                "stroke-width": 0
             },
             "titles": [
-                "name"
+                "name",
+                "operator"
             ]
         },
-        "historic": {
+        "historic_poi": {
             "overpass": [
-                "node[\"historic\"]",
-                "way[\"historic\"]"
+                "node[\"historic\"=\"aircraft\"]",
+                "way[\"historic\"=\"aircraft\"]",
+                "node[\"historic\"=\"cannon\"]",
+                "way[\"historic\"=\"cannon\"]",
+                "node[\"historic\"=\"highwater_mark\"]",
+                "way[\"historic\"=\"highwater_mark\"]",
+                "node[\"historic\"=\"locomotive\"]",
+                "way[\"historic\"=\"locomotive\"]",
+                "node[\"historic\"=\"memorial\"]",
+                "way[\"historic\"=\"memorial\"]",
+                "node[\"historic\"=\"mine_shaft\"]",
+                "way[\"historic\"=\"mine_shaft\"]",
+                "node[\"historic\"=\"milestone\"]",
+                "way[\"historic\"=\"milestone\"]",
+                "node[\"historic\"=\"monument\"]",
+                "way[\"historic\"=\"monument\"]",
+                "node[\"historic\"=\"rune_stone\"]",
+                "way[\"historic\"=\"rune_stone\"]",
+                "node[\"historic\"=\"ship\"]",
+                "way[\"historic\"=\"ship\"]",
+                "node[\"historic\"=\"stone\"]",
+                "way[\"historic\"=\"stone\"]",
+                "node[\"historic\"=\"tank\"]",
+                "way[\"historic\"=\"tank\"]",
+                "node[\"historic\"=\"tomb\"]",
+                "way[\"historic\"=\"tomb\"]",
+                "node[\"historic\"=\"tower\"]",
+                "way[\"historic\"=\"tower\"]",
+                "node[\"historic\"=\"vehicle\"]",
+                "way[\"historic\"=\"vehicle\"]",
+                "node[\"historic\"=\"wayside_cross\"]",
+                "way[\"historic\"=\"wayside_cross\"]",
+                "node[\"historic\"=\"wayside_shrine\"]",
+                "way[\"historic\"=\"wayside_shrine\"]",
+                "node[\"historic\"=\"wreck\"]",
+                "way[\"historic\"=\"wreck\"]"
             ],
             "tags": [
-                "historic"
+                "historic=aircraft",
+                "historic=cannon",
+                "historic=highwater_mark",
+                "historic=locomotive",
+                "historic=memorial",
+                "historic=mine_shaft",
+                "historic=milestone",
+                "historic=monument",
+                "historic=rune_stone",
+                "historic=ship",
+                "historic=stone",
+                "historic=tank",
+                "historic=tomb",
+                "historic=tower",
+                "historic=vehicle",
+                "historic=wayside_cross",
+                "historic=wayside_shrine",
+                "historic=wreck"
             ],
-            "expression":{
-                "stroke":"#606060",
-                "stroke-width":0
+            "expression": {
+                "stroke": "#606060",
+                "stroke-width": 0
             },
             "titles": [
                 "name",
@@ -421,9 +526,9 @@
                 "natural=water",
                 "landuse=reservoir"
             ],
-            "expression":{
-                "stroke":"#505080",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#505080",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -438,9 +543,9 @@
             "tags": [
                 "amenity=place_of_worship"
             ],
-            "expression":{
-                "stroke":"#7d7d7d",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#7d7d7d",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -455,9 +560,9 @@
             "tags": [
                 "leisure=amusement_arcade"
             ],
-            "expression":{
-                "stroke":"#7d7d7d",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#7d7d7d",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -475,9 +580,9 @@
                 "public_transport=station",
                 "railway=station"
             ],
-            "expression":{
-                "stroke":"#7d7d7d",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#7d7d7d",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -493,9 +598,9 @@
             "tags": [
                 "leisure=swimming_pool"
             ],
-            "expression":{
-                "stroke":"#404080",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#404080",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -510,9 +615,9 @@
             "tags": [
                 "amenity=toilets"
             ],
-            "expression":{
-                "stroke":"#7d7d7d",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#7d7d7d",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -527,9 +632,9 @@
             "tags": [
                 "amenity=vending_machine"
             ],
-            "expression":{
-                "stroke":"#805050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#805050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -544,9 +649,9 @@
             "tags": [
                 "amenity=post_box"
             ],
-            "expression":{
-                "stroke":"#805050",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#805050",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -567,9 +672,9 @@
                 "place=quarter",
                 "place=neighbourhood"
             ],
-            "expression":{
-                "stroke":"#7d7d7d",
-                "stroke-width":1
+            "expression": {
+                "stroke": "#7d7d7d",
+                "stroke-width": 1
             },
             "titles": [
                 "name",
@@ -577,23 +682,18 @@
             ]
         },
         "wikipedia": {
-            "marker": "wikipedia.svg",
-            "api_": "wikipedia.org/w/api.php?format=json&action=query&prop=extracts%7Cimages&exintro=&explaintext=&titles=",
-            "api":"wikipedia.org/api/rest_v1/page/summary/",
-            "domain": "wikipedia.org",
-            "tag": "wikipedia",
             "overpass": [
-                "node[\"wikipedia\"][\"public_transport\"!=\"stop_position\"]",
+                "node[\"wikipedia\"][!\"highway\"][\"public_transport\"!=\"stop_position\"]",
                 "way[\"wikipedia\"][!\"highway\"][!\"railway\"]",
-                "relation[\"wikipedia\"][!\"route\"][!\"highway\"][!\"railway\"][\"name:ja\"!=\"本州\"][\"area\"!=\"yes\"][!\"boundary\"]"
+                "relation[\"wikipedia\"][!\"route\"][!\"highway\"][!\"railway\"][\"name:ja\"!=\"本州\"][\"area\"!=\"yes\"][!\"boundary\"][!\"admin_level\"]"
             ],
             "tags": [
                 "wikipedia"
             ],
-            "expression":{
-                "stroke":"#7070C0",
-                "stroke-width":1
-            },           
+            "expression": {
+                "stroke": "#7070C0",
+                "stroke-width": 1
+            },
             "titles": [
                 "name"
             ]
