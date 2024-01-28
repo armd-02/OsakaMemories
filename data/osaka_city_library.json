@@ -330,17 +330,6 @@
     },
     {
       "type": "node",
-      "id": 2868217700,
-      "lat": 34.6572178,
-      "lon": 135.5017284,
-      "tags": {
-        "amenity": "library",
-        "name": "まちライブラリー＠大阪府立大学",
-        "website": "https://machi-library.org/where/detail/59/"
-      }
-    },
-    {
-      "type": "node",
       "id": 4406518743,
       "lat": 34.6681061,
       "lon": 135.5414729,
