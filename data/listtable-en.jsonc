@@ -9,28 +9,27 @@
                 },
                 {
                     "id": "category",
-                    "name": "Category",
+                    "name": "era",
                     "hidden": true
                 },
                 {
-                    "id": "name",
-                    "name": "name"
+                    "id": "things",
+                    "name": "things"
                 },
                 {
                     "id": "title",
-                    "name": "title"
+                    "name": "memory"
                 }
             ],
             "poi_fields": [
                 "id",
-                "timestamp",
                 "#category",
                 "name"
             ],
             "act_fields": [
                 "id",
-                "updatetime",
                 "category",
+                "things",
                 "title"
             ]
         }
