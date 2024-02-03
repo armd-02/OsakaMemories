@@ -16,19 +16,14 @@
 		</a>
 	</div>
 	<div class="col-12 p-2 mr-2 d-flex align-items-center">
-		<div class="h-100 d-flex align-items-center text-nowrap"><span glot-model="cat_select"></span></div>
 		<select class="form-control ml-1" id="list_category"></select>
-		<button class="btn btn-light border-secondary float-left ml-2 float-left ml-2" id="mode_button" onclick="cMapMaker.mode_change();"><i class="fas fa-list" id="list_collapse_icon"></i></button>
+		<button class="btn btn-light border-secondary float-left ml-2" id="mode_button" onclick="cMapMaker.mode_change();"><i class="fas fa-list" id="list_collapse_icon"></i></button>
 	</div>
 	<div class="col-12 p-0 pt-1 m-0 mb-2 collapse show rounded-bottom rounded-end" id="list_collapse">
-		<div id="filterid" class="d-flex flex-column justify-content-center ml-1">
-			<div class="row">
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-12 d-flex align-items-center">
-				<i class="block flex-row fas fa-search m-1 pl-1 pt-1 pr-1"></i>
-				<input type="text" class="flex-row form-control mt-1" style="width: calc(100% - 24px)" id="list_keyword" />
+				<input type="text" class="flex-row form-control m-2" style="width: calc(100% - 24px)" id="list_keyword" />
+				<button class="btn btn-light border-secondary float-left ml-1 mr-1" id="mode_button" onclick="cMapMaker.eventChangeKeyword();"><i class="fas fa-search"></i></button>
 			</div>
 		</div>
 		<div class="row">

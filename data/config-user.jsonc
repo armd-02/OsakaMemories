@@ -4,7 +4,7 @@
     "map": {
         "tileName": "MapTiler(memories)", // タイル一覧は config-system.jsonc へ
         "viewCenter": [
-            135.5225,
+            135.5100,
             34.6701
         ],
         "viewPitch": 40,

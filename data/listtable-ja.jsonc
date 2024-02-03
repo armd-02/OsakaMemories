@@ -9,16 +9,16 @@
                 },
                 {
                     "id": "category",
-                    "name": "種類",
+                    "name": "年代",
                     "hidden": true
                 },
                 {
-                    "id": "name",
-                    "name": "施設名"
+                    "id": "things",
+                    "name": "種別"
                 },
                 {
                     "id": "title",
-                    "name": "タイトル"
+                    "name": "思い出"
                 }
             ],
             // #parent.tag名:親地物(敷地)の指定したタグ / その他:tag名
@@ -32,7 +32,7 @@
             "act_fields": [
                 "id",
                 "category",
-                "#name",
+                "things",
                 "title"
             ]
         }

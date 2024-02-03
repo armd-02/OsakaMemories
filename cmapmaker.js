@@ -97,12 +97,6 @@ class CMapMaker {
 				}
 			});
 		}
-		/*
-		if (setcount == 0 && listTable.getFlistCount() > 0) {		// Poi表示無し&リストテーブルには存在する = ズーム無視で表示
-			let flist = listTable.filterTarget(Conf.google.targetName);
-			poiMarker.setPoi("", true, flist);
-		}
-		*/
 		console.log("viewPoi: End.");
 	}
 
@@ -346,7 +340,7 @@ class CMapMaker {
 			this.changeKeywordWaitTime = 0;
 		};
 		this.changeKeywordWaitTime = window.setTimeout(() => {
-			listTable.filterKeyword();
+			listTable.filterKeyword(list_keyword.value);
 			this.mode_change('list');
 		}, 500);
 	};
