@@ -112,9 +112,9 @@ class modal_Activities {
     // make activity list
     make_activity_list(actlists) {
         if (actlists.length > 1) {
-            let html = "<ul class='ml-0 pl-4'>";
+            let html = "<ul class='ml-0 pl-4'>"
             for (let act of actlists) {
-                console.log("modal_Activities: " + act.id);
+                //console.log("modal_Activities: " + act.id)
                 html += `<li><span class="pointer" onclick="document.getElementById('${act.id.replace('/', '')}').scrollIntoView({behavior: 'smooth'})">${act.title}<span></li>`;
             }
             return html + "</ul>";
