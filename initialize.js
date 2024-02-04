@@ -58,14 +58,13 @@ window.addEventListener("DOMContentLoaded", function () {
 			mapLibre.addControl("bottom-left", "zoomlevel", "");
 			winCont.playback(Conf.listTable.playback.view);			// playback control view:true/false
 			winCont.download(Conf.listTable.download);				// download view:true/false
-			cMapMaker.init();
 			cMapMaker.mode_change("map");							// initialize last_modetime
 			winCont.menu_make(Conf.menu.main, "main_menu");
-			winCont.mouseDragScroll(images,cMapMaker.viewImage);	// set Drag Scroll on images
-			listTable.makeSelectList(Conf.listTable.category);		// Must be executed before eventMoveMap
+			winCont.mouseDragScroll(images, cMapMaker.viewImage);	// set Drag Scroll on images
 			glot.render();
 
 			const init_close = function () {
+				listTable.makeSelectList(Conf.listTable.category);	// Must be executed before eventMoveMap
 				let eventMoveMap = cMapMaker.eventMoveMap.bind(cMapMaker);
 				eventMoveMap().then(() => {
 					winCont.splash(false);
@@ -91,6 +90,7 @@ window.addEventListener("DOMContentLoaded", function () {
 							};
 						};
 					};
+					cMapMaker.addEvents();
 				});
 			}
 

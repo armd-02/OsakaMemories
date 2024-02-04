@@ -12,7 +12,7 @@ class CMapMaker {
 		this.changeKeywordWaitTime;
 	};
 
-	init() {
+	addEvents() {
 		console.log("CMapMaker: init.");
 		mapLibre.on('moveend', this.eventMoveMap.bind(cMapMaker));   		// マップ移動時の処理
 		mapLibre.on('zoomend', this.eventZoomMap.bind(cMapMaker));			// ズーム終了時に表示更新
@@ -90,14 +90,15 @@ class CMapMaker {
 			poiMarker.setPoi("", false, listTable.flist);
 			setcount = setcount + listTable.flist.length;
 		} else {			// targets 内に選択肢が含まれている場合
+			console.log("viewPoi: " + targets.concat())
 			targets.forEach((target) => {
 				if (target == nowselect || nowselect == "-") {	// 選択している種別の場合
 					poiMarker.setPoi(target, target == Conf.google.targetName);
 					setcount++;
 				}
-			});
+			})
 		}
-		console.log("viewPoi: End.");
+		console.log("viewPoi: End.")
 	}
 
 	// 画面内のActivity画像を表示させる
@@ -290,6 +291,7 @@ class CMapMaker {
 						case true:
 							this.moveMapBusy = 0;
 							let targets = [listTable.getSelCategory()];
+							console.log("eventMoveMap:" + targets)
 							if (Conf.view.poiFilter !== "") {		// 非連動以外は更新
 								listTable.makeList();					// view all list
 								listTable.makeSelectList(Conf.listTable.category)
