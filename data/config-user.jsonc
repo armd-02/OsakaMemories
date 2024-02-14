@@ -49,6 +49,7 @@
     "google": {
         "Analytics": "G-78EQW3DYK8",
         "AppScript": "https://script.google.com/macros/s/AKfycbyXoNiloF2anU-k2sQ1Z1Xq15hCpvmEPHJzv0qB5_E1h6Apiyr9YJwyrwCy8k8aRb6zTA/exec",
+        //"AppScript":"https://script.google.com/macros/s/AKfycbxRK0MHQS1FKSjyXVIV_RJneorZirKv9ckthp2CxdEfu9YH_j9En4O7bBpAO-x4NiNSIQ/exec", // for testdata
         "targetName": "activity"
     },
     "static": {
